@@ -15,3 +15,7 @@
 .backgroud-button{
   background: linear-gradient(to left, #F8BF3B, #EF5F3D, #F5712C, #FF8B13);
 }
+
+.path{
+  clip-path: polygon(100% 0%, 90% 50%, 100% 100%, 0 98%, 0% 50%, 0 0);
+}

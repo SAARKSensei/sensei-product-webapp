@@ -2,49 +2,15 @@
 
 import React from 'react'
 import Navbar from '@/Components/Navbar'
-import Background from '@/Images/bg.png'
-import Doctor from '@/Images/dr.png'
-import Image from 'next/image'
+import LeftSide from '@/Components/LeftSide'
+import Link from 'next/link'
 
 const page = () => {
   return (
     <div className="h-screen w-screen ">
       <Navbar />
       <div className="flex">
-        <div className="  w-2/4	h-screen relative	">
-          <Image
-            src={Background}
-            alt="background served with static path of image folder in src directory"
-            className="h-screen	"
-          />
-          <div>
-            <div className="absolute top-36 left-44 h-3/5 border-8 rounded-md	 border-cyan-400 bg-slate-200 w-80">
-              {/* <Image
-           src={Fram}
-           className='h-1/4	 w-72' 
-           /> */}
-            </div>
-            <div className="backgroud-color absolute h-72 w-52 top-52 right-28">
-              <h5 className="font-semibold	text-white	px-7 pt-7">
-                Lorem ipsum dolor sit amet consectetur. Nisi lectus eget elit
-                montes turpis velit.
-              </h5>
-              <Image
-                src={Doctor}
-                className="h-28 w-28 stikey mt-16 -ml-9"
-              />
-              <div className="h-28 w-40 absolute left-20 top-40 mt-5 bg-[#FFF0DE]">
-                <h5 className="font-sans  px-2 font-bold">
-                  Dr. Aprajita Dixit
-                </h5>
-                <p className="text-xs	px-2 pt-1 ">
-                  Consultant Clinical Psychologist (RCI) | Mental Health Expert
-                  at MANODARPAN | Min of Education (MoE)
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+        <LeftSide />
 
 
         <div className="w-2/4	h-screen relative">
@@ -61,9 +27,9 @@ const page = () => {
                 A 4 digit OTP will be sent via SMS to verify your mobile number.
               </p>
             </div>
-            <button className="backgroud-button px-6 py-2 rounded-full text-white	mt-7">
+           <Link  href="/Routes/OTP-verification"> <button className="backgroud-button px-6 py-2 rounded-full text-white	mt-7">
               Login
-            </button>
+            </button></Link>
             <p className="text-xs pr-28 mt-8">
               By signing in, you agree to the{" "}
               <span className="font-semibold	">Terms of Service</span> and{" "}
