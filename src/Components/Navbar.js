@@ -9,25 +9,22 @@ import Phoneicon from '@/Images/Phoneicon.png'
 const Navbar = () => {
 
   return (
-    <div className="h-20 mt-8 w-full px-24 flex justify-between z-20 absolute top-0.5">
-      <div className="">
-        <Image src={Logo} className="h-14 w-32" />
-      </div>
-      <div className="flex">
-        <div className="flex gap-3">
-          <Link href="" className="text-blue-600">
-            Are you an Educator?
-          </Link>
-          <Link href="" className="text">
-            Enquire now
-          </Link>
-          <div className="flex gap-1">
-            <Image src={Phoneicon} className="h-5 w-5" />
-            <Link href="" className="text font-bold">
-              {" "}
-              96659 52556
-            </Link>
-          </div>
+    <div className="h-12 mt-8 w-full px-3 sm:px-24 flex justify-between z-20 absolute">
+      <Link href={""} className="w-[102px] h-12">
+        <Image src={Logo} alt='main logo' className="h-14 w-32" />
+      </Link>
+      <div className='flex flex-col sm:flex-row justify-end sm:gap-3 items-center'>
+        <div className='w-[206px] h-12 flex items-center'>
+          <Link href={""} className='font-Nunito font-semibold text-sm text-[#0764A7] ml-auto'>Are you an Educator?</Link>
+        </div>
+        <div className='flex ml-auto items-center'>
+          <p className='text-[#FF8B13] font-Nunito font-bold italic text-sm'>Enquire Now</p>
+          <Image
+            src={Phoneicon}
+            alt='phone icon'
+            className=' w-6 h-6'
+          />
+          <p className='text-[#FF8B13] font-Nunito font-bold italic text-sm'>96659 52556</p>
         </div>
       </div>
     </div>

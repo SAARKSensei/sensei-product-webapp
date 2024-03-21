@@ -7,7 +7,7 @@ import Link from 'next/link'
 const LeftSide = () => {
 
   return (
-    <div className="  w-2/4	h-screen relative	">
+    <div className="w-full h-screen relative">
       <Image
         src={Backgroud}
         alt="background served with static path of image folder in src directory"
@@ -25,7 +25,7 @@ const LeftSide = () => {
             Lorem ipsum dolor sit amet consectetur. Nisi lectus eget elit montes
             turpis velit.
           </h5>
-          <Image src={Doctor} className="h-28 w-28 stikey mt-16 -ml-9" />
+          <Image src={Doctor} alt='doctor pic' className="h-28 w-28 stikey mt-16 -ml-9" />
           <div className="h-28 w-40 absolute left-20 top-40 mt-5 bg-[#FFF0DE]">
             <h5 className="font-sans  px-2 font-bold">Dr. Aprajita Dixit</h5>
             <p className="text-xs	px-2 pt-1 ">
