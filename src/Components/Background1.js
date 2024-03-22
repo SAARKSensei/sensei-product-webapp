@@ -9,7 +9,7 @@ import SmileStar from '@/Images/smileStar.svg'
 
 const pages = () => {
   return (
-    <div className="h-screen w-screen absolute  opacity-15	z-0">
+    <div className="h-screen w-screen absolute hidden sm:block opacity-15	z-0">
       <Image src={Star} className="absolute left-1/3" />
       <Image src={Heart} className="absolute top-1/4 left-3/4 ml-32 mt-10" />
       <Image src={Thumb} className="absolute top-20 ml-10" />
