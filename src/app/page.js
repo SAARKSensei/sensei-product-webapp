@@ -18,7 +18,7 @@ const page = () => {
           <p className=' font-Nunito font-normal text-base'>Sign in to continue</p>
         </div>
         <div className="w-full absolute sm:relative sm:w-1/2 h-[355px] sm:h-screen sm:justify-center bottom-0 left-0 px-7 py-11 bg-[#FFEFDE] sm:bg-[#FFF] rounded-3xl flex flex-col justify-end">
-          <div className="w-full sm:w-[382px] h-[298px] flex flex-col gap-4 items-center sm:items-start sm:justify-start	">
+          <div className="w-full sm:w-[382px] h-[298px] flex flex-col gap-4 items-center sm:items-start sm:ml-24">
             <div className="w-full sm:w-[335px] flex flex-col items-center sm:justify-start sm:items-start gap-4">
               <label htmlFor="number" className='font-Nunito font-normal text-base'>Phone number</label>
               <div className="flex mt-1.5 w-full sm:w-[276px] px-3 py-0.5 border rounded-md bg-white border-gray-300 shadow-lg">
