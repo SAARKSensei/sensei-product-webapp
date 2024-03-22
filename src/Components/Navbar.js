@@ -17,7 +17,7 @@ const Navbar = () => {
         <div className='w-[206px] h-12 flex items-center'>
           <Link href={""} className='font-Nunito font-semibold text-sm text-[#0764A7] ml-auto'>Are you an Educator?</Link>
         </div>
-        <div className='flex ml-auto items-center'>
+        <div className='flex ml-auto items-center gap-1'>
           <p className='text-[#FF8B13] font-Nunito font-bold italic text-sm'>Enquire Now</p>
           <Image
             src={Phoneicon}
