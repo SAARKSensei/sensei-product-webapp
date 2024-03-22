@@ -12,17 +12,17 @@ const page = () => {
     <div className="h-screen w-screen">
       <Background />
       <Navbar1 />
-      <div className='flex justify-center items-center sm:block flex-col sm:items-start sm:justify-normal'>
+      <div className='flex justify-center items-center sm:block flex-col sm:items-start sm:justify-center'>
         <div className="flex flex-col justify-center items-center mt-24 sm:mt-0 font-Nunito">
-          <h1 className=" text-[#2C3D68] sm:text-3xl text-2xl font-semibold sm:font-bold sm:mt-28">
+          <h1 className=" text-[#2C3D68] sm:text-3xl text-2xl font-bold sm:mt-28">
             Add child’s details
           </h1>
-          <h6 className=" text-gray-600">
+          <h6 className="font-Nunito font-normal text-sm text-gray-600">
             Please fill in the correct details
           </h6>
         </div>
         <div className="flex flex-col sm:flex-row justify-center items-center sm:gap-12 gap-2 mt-5">
-          <div className="continer w-[353px] h-[569px] sm:w-[562px] sm:h-[388px]  bg-[#FFF8F1] rounded-lg">
+          <div className="w-[353px] h-[569px] sm:w-[562px] sm:h-[388px]  bg-[#FFF8F1] rounded-lg">
             <div className="flex justify-between items-center rounded-ss-lg rounded-se-lg sm:px-5	sm:justify-between px-5 w-full h-14 bg-[#F58720]">
               <h1 className="font-bold font-Nunito text-xl text-white">
                 1. Child
