@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Navbar from '@/Components/Navbar1'
 import Cartoon from '@/Images/parent-page.svg'
+import Parent from '@/Images/parentDetiles.svg'
 import { useState, useEffect } from 'react'
 import Background from '@/Components/Background.js'
 
@@ -36,21 +37,29 @@ const page = () => {
       <div>
         <div className="z-50	">
           <Navbar />
-          <div className="flex ">
+          <div className="flex">
             <div className="w-1/2 h-screen ">
-              <h1 className="mt-48 ml-56 text-[#2C3D68] text-5xl font-extrabold	">
+            <div  className='w-full h-screen gap-2 text-center items-center flex flex-col justify-center sm:mt-0 mt-10'>
+            <h1 className="sm:w-full w-[214px] h-[45px] ml-52 font-Nunito text-[#2C3D68] sm:text-5xl text-3xl font-extrabold sm:mt-32 ">
                 Hello Parent!
               </h1>
-              <h6 className="mt-2 ml-56 text-gray-600	">
+              <h6 className="text-gray-600 w-[204px] ml-28	whitespace-nowrap	font-Nunito">
                 Please fill the details to create the profile
               </h6>
-              <Image className="h-3/5	mt-2  absolute z-50" src={Cartoon} />
+              <Image className="sm:h-3/5 mt-2 sm:mt-16 z-50 sm:block hidden" src={Cartoon} alt='Parent-Image'/>
+              <Image src={Parent} alt='Parent-Images' className='sm:hidden h-1/2	mt-2 ml-36 z-50'/>
+              <button className='backgroud-button py-2.5 rounded-full text-center px-32 text-white sm:hidden ml-48'>Countinue</button>
             </div>
-            <div className="w-1/2 h-screen">
+            </div>
+            <div className="w-1/2 h-screen sm:block">
               <div className="continer ">
-                <div className="mt-32">
-                  <form onSubmit={SubmitForm}>
-                    <div className=" flex flex-col mx-10">
+                <div className="mt-28">
+                <h1 className='text-3xl tracking-wide ml-36 sm:hidden whitespace-nowrap font-extrabold font-Nunito text-[#2C3D68]'>Hello Parent!</h1>
+                <h6 className="text-gray-600 sm:hidden w-[204px] ml-28	whitespace-nowrap	font-Nunito">
+                Please fill the details to create the profile
+              </h6>
+                  <form onSubmit={SubmitForm} className='mt-8'>
+                    <div className="flex flex-col mx-12 sm:mx-10">
                       <label htmlFor="Full Name" className="mb-2">
                         Parent Name
                       </label>
@@ -61,12 +70,12 @@ const page = () => {
                         value={formData.FullName}
                         onChange={InputChange}
                         placeholder="Enter full name"
-                        className="w-1/2 px-2 py-2 border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
+                        className="sm:w-1/2 w-96 px-2 py-2 border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
                         required
                       />
                     </div>
 
-                    <div className=" flex flex-col mx-10 mt-3">
+                    <div className=" flex flex-col sm:mx-10 mx-12 mt-3">
                       <label htmlFor="Email" className="mb-2">
                         Email
                       </label>
@@ -77,12 +86,12 @@ const page = () => {
                         value={formData.Emailid}
                         onChange={InputChange}
                         placeholder="Enter email ID"
-                        className="w-1/2 px-2 py-2  border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
+                        className="sm:w-1/2 w-96 px-2 py-2  border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
                         required
                       />
                     </div>
 
-                    <div className=" flex flex-col mx-10 mt-3">
+                    <div className=" flex flex-col sm:mx-10 mx-12 mt-3">
                       <label htmlFor="Phone number" className="mb-2">
                         Phone no.
                       </label>
@@ -93,12 +102,12 @@ const page = () => {
                         value={formData.PhoneNumber}
                         onChange={InputChange}
                         placeholder="Enter phone number"
-                        className="w-1/2 px-2 py-2  border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
+                        className="sm:w-1/2 w-96 px-2 py-2  border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
                         required
                       />
                     </div>
 
-                    <div className=" flex flex-row mx-10 mt-5 gap-10">
+                    <div className=" flex flex-row sm:mx-10 mx-12 mt-5 gap-8">
                       <div className="flex flex-col">
                         <label htmlFor="loaction" className="mb-2">
                           Loaction
@@ -107,7 +116,7 @@ const page = () => {
                           id="city"
                           name="city"
                           required
-                          className="block w-36 px-2 py-2 border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
+                          className="block sm:w-36 w-44 px-2 py-2 border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
                         >
                           <option value="Select">Select</option>
                           <option value="New York">New York</option>
@@ -125,7 +134,7 @@ const page = () => {
                         <select
                           id="city"
                           name="city"
-                          className="block w-36 px-2 py-2 border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
+                          className="block sm:w-36 w-44 px-2 py-2 border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
                         >
                           <option value="Select">Select</option>
                           <option value="New York">New York</option>
@@ -137,7 +146,7 @@ const page = () => {
                       </div>
                     </div>
 
-                    <div className=" flex flex-col mx-10 mt-3">
+                    <div className=" flex flex-col sm:mx-10 mx-12 mt-3">
                       <label htmlFor="SocietyName" className="mb-2">
                         Society Name
                       </label>
@@ -148,15 +157,14 @@ const page = () => {
                         value={formData.SocietyName}
                         onChange={InputChange}
                         placeholder="Enter name"
-                        className="w-1/2 px-2 py-2  border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
+                        className="sm:w-1/2 w-96 px-2 py-2  border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
                         required
                       />
                     </div>
                     <div className="ml-11 mr-auto mt-5 ">
                       <button
                         type="submit"
-                        className="backgroud-button  px-32 text-white py-3 rounded-full "
-                      >
+                        className="backgroud-button sm:w-1/2 w-96 sm: sm:px-32 text-white py-3  rounded-full whitespace-nowrap">
                         Save & Next
                       </button>
                     </div>
