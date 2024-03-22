@@ -30,7 +30,7 @@ const page = () => {
                 <h6>Age: 7 years </h6>
                 <h6> Grade:1</h6>
               </div>
-              <h4 className="mt-2 bg-red-100 px-1 rounded-md border-2 border-blue-600 whitespace-nowrap	bg-blue-200">
+              <h4 className="mt-2 px-1 rounded-md border-2 border-blue-600 whitespace-nowrap	bg-blue-200">
                 Foundational Course
               </h4>
             </div>
