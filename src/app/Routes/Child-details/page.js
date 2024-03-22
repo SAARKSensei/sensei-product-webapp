@@ -1,6 +1,6 @@
 "use client"
 import React from 'react'
-import Navbar from '@/Components/Navbar1'
+import Navbar1 from '@/Components/Navbar1'
 import Image from 'next/image'
 import DeleteIcon from '@/Images/delete-icon.svg'
 import AddChild from '@/Images/Addchild.svg'
@@ -11,7 +11,7 @@ const page = () => {
   return (
     <div className="h-screen w-screen">
       <Background />
-      <Navbar />
+      <Navbar1 />
       <div className='flex justify-center items-center sm:block flex-col sm:items-start sm:justify-normal'>
         <div className="flex flex-col justify-center items-center mt-24 sm:mt-0 font-Nunito">
           <h1 className=" text-[#2C3D68] sm:text-3xl text-2xl font-semibold sm:font-bold sm:mt-28">
@@ -22,7 +22,7 @@ const page = () => {
           </h6>
         </div>
         <div className="flex flex-col sm:flex-row justify-center items-center sm:gap-12 gap-2 mt-5">
-          <div className="continer w-[353px] h-[569px] sm:w-[562px] sm:h-[388px]  bg-[#FFF8F1] rounded-lg  ">
+          <div className="continer w-[353px] h-[569px] sm:w-[562px] sm:h-[388px]  bg-[#FFF8F1] rounded-lg">
             <div className="flex justify-between items-center rounded-ss-lg rounded-se-lg sm:px-5	sm:justify-between px-5 w-full h-14 bg-[#F58720]">
               <h1 className="font-bold font-Nunito text-xl text-white">
                 1. Child
@@ -30,7 +30,7 @@ const page = () => {
               <Image className="" src={DeleteIcon} alt='Delete-Icon' />
             </div>
             <form action="">
-              <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 px-5 mt-2 sm:mt-5 font-NunitoSans">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 px-5 mt-3 sm:mt-5 font-NunitoSans">
                 <div className="flex flex-col sm:w-[279px] sm:h-[75px]">
                   <label htmlFor="" className="mb-2">
                     Child Name
