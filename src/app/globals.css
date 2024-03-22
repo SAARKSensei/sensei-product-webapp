@@ -1,22 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 
-.text{
+.text {
   color: #F58720;
   font-family: sans-serif;
 }
 
-.backgroud-color{
+.backgroud-color {
   background: linear-gradient(to top, #F8BF3B, #EF5F3D, #F5712C, #FF8B13);
 }
 
-.backgroud-button{
+.backgroud-button {
   background: linear-gradient(to left, #F8BF3B, #EF5F3D, #F5712C, #FF8B13);
 }
 
-.path{
+.path {
   clip-path: polygon(100% 0%, 90% 50%, 100% 100%, 0 98%, 0% 50%, 0 0);
 }
 
@@ -25,7 +29,7 @@
   0% {
     transform: translateX(0%);
   }
-  
+
   100% {
     transform: translateX(35%);
   }
@@ -74,15 +78,15 @@
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: #2196F3;
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px #2196F3;
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -106,7 +110,7 @@ input:checked + .slider:before {
   left: 0;
   right: 0;
   bottom: 0;
-  border:2px solid #F58720;
+  border: 2px solid #F58720;
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -123,15 +127,15 @@ input:checked + .slider:before {
   transition: .4s;
 }
 
-input:checked + .slider1 {
+input:checked+.slider1 {
   background-color: #Fff;
 }
 
-input:focus + .slider1 {
+input:focus+.slider1 {
   box-shadow: 0 0 1px #F58720;
 }
 
-input:checked + .slider1:before {
+input:checked+.slider1:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(23px);
