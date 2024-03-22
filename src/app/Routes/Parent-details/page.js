@@ -6,22 +6,23 @@ import Cartoon from '@/Images/parent-page.svg'
 import Parent from '@/Images/parentDetiles.svg'
 import { useState, useEffect } from 'react'
 import Background from '@/Components/Background.js'
+import DownArrow from "../../../Images/downarrow.svg"
 
 const page = () => {
 
-  const [formData, setformData]= useState({
-    FullName:'',
-    Emailid:'',
-    PhoneNumber:'',
-    City:'',
-    SocietyName:'',
+  const [formData, setformData] = useState({
+    FullName: '',
+    Emailid: '',
+    PhoneNumber: '',
+    City: '',
+    SocietyName: '',
   });
 
   // Form to handle input changes
   const InputChange = (e) => {
-   setformData({
-    ...formData, [e.target.name]: e.target.value,
-   })
+    setformData({
+      ...formData, [e.target.name]: e.target.value,
+    })
   };
 
   //Submit handle
@@ -32,149 +33,147 @@ const page = () => {
   };
 
   return (
-    <div className="h-screen w-screen overflow-hidden	">
+    <div className="h-max w-screen overflow-hidden flex flex-col sm:flex-row z-50">
       <Background />
-      <div>
-        <div className="z-50	">
-          <Navbar />
-          <div className="flex">
-            <div className="w-1/2 h-screen ">
-            <div  className='w-full h-screen gap-2 text-center items-center flex flex-col justify-center sm:mt-0 mt-10'>
-            <h1 className="sm:w-full w-[214px] h-[45px] ml-52 font-Nunito text-[#2C3D68] sm:text-5xl text-3xl font-extrabold sm:mt-32 ">
-                Hello Parent!
-              </h1>
-              <h6 className="text-gray-600 w-[204px] ml-28	whitespace-nowrap	font-Nunito">
-                Please fill the details to create the profile
-              </h6>
-              <Image className="sm:h-3/5 mt-2 sm:mt-16 z-50 sm:block hidden" src={Cartoon} alt='Parent-Image'/>
-              <Image src={Parent} alt='Parent-Images' className='sm:hidden h-1/2	mt-2 ml-36 z-50'/>
-              <button className='backgroud-button py-2.5 rounded-full text-center px-32 text-white sm:hidden ml-48'>Countinue</button>
+      <Navbar />
+      <div className="w-full sm:w-1/2 h-screen flex flex-col justify-center items-center text-center">
+        <div className='flex flex-col items-center justify-center gap-1 sm:translate-y-44 sm:translate-x-8'>
+          <h1 className="font-Nunito text-[#2C3D68] text-3xl sm:text-5xl font-extrabold">
+            Hello Parent!
+          </h1>
+          <h6 className="text-gray-600 whitespace-nowrap text-xs sm:text-lg font-Nunito">
+            Please fill the details to create the profile
+          </h6>
+        </div>
+        <Image
+          src={Parent}
+          alt='parent'
+          className='sm:w-[618px] sm:h-[689px] sm:translate-y-48 mt-9 sm:mt-11'
+        />
+      </div>
+
+      <div className="w-full sm:w-1/2 h-screen flex items-center justify-center -translate-y-80 sm:translate-y-0">
+        <div className='w-[333px] sm:w-[353px] h-[528px] flex flex-col justify-center items-center gap-8 mx-auto'>
+          <form id='myForm' onSubmit={SubmitForm} className='w-full h-[439px] flex flex-col gap-4'>
+            <div className="flex flex-col gap-[10px] w-full h-[75px]">
+              <label htmlFor="Full Name" className="font-NunitoSans font-normal text-sm">
+                Parent Name
+              </label>
+              <input
+                type="text"
+                id="FullName"
+                name="FullName"
+                value={formData.FullName}
+                onChange={InputChange}
+                placeholder="Enter full name"
+                className="w-full h-[46px] px-6 py-3 border-2 shadow-md rounded-[10px] bg-white focus:outline-none focus:border-blue-400 font-NunitoSans font-semibold text-base"
+                required
+              />
             </div>
+            <div className="flex flex-col gap-[10px] w-full h-[75px]">
+              <label htmlFor="Email" className="font-NunitoSans font-normal text-sm">
+                Email
+              </label>
+              <input
+                type="email"
+                id="Emailid"
+                name="Emailid"
+                value={formData.Emailid}
+                onChange={InputChange}
+                placeholder="Enter email ID"
+                className="w-full h-[46px] px-6 py-3 border-2 shadow-md rounded-[10px] bg-white focus:outline-none focus:border-blue-400 font-NunitoSans font-semibold text-base"
+                required
+              />
             </div>
-            <div className="w-1/2 h-screen sm:block">
-              <div className="continer ">
-                <div className="mt-28">
-                <h1 className='text-3xl tracking-wide ml-36 sm:hidden whitespace-nowrap font-extrabold font-Nunito text-[#2C3D68]'>Hello Parent!</h1>
-                <h6 className="text-gray-600 sm:hidden w-[204px] ml-28	whitespace-nowrap	font-Nunito">
-                Please fill the details to create the profile
-              </h6>
-                  <form onSubmit={SubmitForm} className='mt-8'>
-                    <div className="flex flex-col mx-12 sm:mx-10">
-                      <label htmlFor="Full Name" className="mb-2">
-                        Parent Name
-                      </label>
-                      <input
-                        type="text"
-                        id="FullName"
-                        name="FullName"
-                        value={formData.FullName}
-                        onChange={InputChange}
-                        placeholder="Enter full name"
-                        className="sm:w-1/2 w-96 px-2 py-2 border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
-                        required
-                      />
-                    </div>
-
-                    <div className=" flex flex-col sm:mx-10 mx-12 mt-3">
-                      <label htmlFor="Email" className="mb-2">
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        id="Emailid"
-                        name="Emailid"
-                        value={formData.Emailid}
-                        onChange={InputChange}
-                        placeholder="Enter email ID"
-                        className="sm:w-1/2 w-96 px-2 py-2  border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
-                        required
-                      />
-                    </div>
-
-                    <div className=" flex flex-col sm:mx-10 mx-12 mt-3">
-                      <label htmlFor="Phone number" className="mb-2">
-                        Phone no.
-                      </label>
-                      <input
-                        type="number"
-                        id="PhoneNumber"
-                        name="PhoneNumber"
-                        value={formData.PhoneNumber}
-                        onChange={InputChange}
-                        placeholder="Enter phone number"
-                        className="sm:w-1/2 w-96 px-2 py-2  border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
-                        required
-                      />
-                    </div>
-
-                    <div className=" flex flex-row sm:mx-10 mx-12 mt-5 gap-8">
-                      <div className="flex flex-col">
-                        <label htmlFor="loaction" className="mb-2">
-                          Loaction
-                        </label>
-                        <select
-                          id="city"
-                          name="city"
-                          required
-                          className="block sm:w-36 w-44 px-2 py-2 border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
-                        >
-                          <option value="Select">Select</option>
-                          <option value="New York">New York</option>
-                          <option value="Los Angeles">Los Angeles</option>
-                          <option value="Chicago">Chicago</option>
-                          <option value="Houston">Houston</option>
-                          {/* Add more options as needed */}
-                        </select>
-                      </div>
-
-                      <div className="flex flex-col">
-                        <label htmlFor="working" className="mb-2">
-                          Both working
-                        </label>
-                        <select
-                          id="city"
-                          name="city"
-                          className="block sm:w-36 w-44 px-2 py-2 border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
-                        >
-                          <option value="Select">Select</option>
-                          <option value="New York">New York</option>
-                          <option value="Los Angeles">Los Angeles</option>
-                          <option value="Chicago">Chicago</option>
-                          <option value="Houston">Houston</option>
-                          {/* Add more options as needed */}
-                        </select>
-                      </div>
-                    </div>
-
-                    <div className=" flex flex-col sm:mx-10 mx-12 mt-3">
-                      <label htmlFor="SocietyName" className="mb-2">
-                        Society Name
-                      </label>
-                      <input
-                        type="text"
-                        id="SocietyName"
-                        name="SocietyName"
-                        value={formData.SocietyName}
-                        onChange={InputChange}
-                        placeholder="Enter name"
-                        className="sm:w-1/2 w-96 px-2 py-2  border-2 shadow-md rounded-md focus:outline-none focus:border-blue-400"
-                        required
-                      />
-                    </div>
-                    <div className="ml-11 mr-auto mt-5 ">
-                      <button
-                        type="submit"
-                        className="backgroud-button sm:w-1/2 w-96 sm: sm:px-32 text-white py-3  rounded-full whitespace-nowrap">
-                        Save & Next
-                      </button>
-                    </div>
-                  </form>
-                </div>
+            <div className="flex flex-col gap-[10px] w-full h-[75px]">
+              <label htmlFor="Phone number" className="font-NunitoSans font-normal text-sm">
+                Phone no.
+              </label>
+              <input
+                type="tel"
+                id="PhoneNumber"
+                name="PhoneNumber"
+                value={formData.PhoneNumber}
+                onChange={InputChange}
+                placeholder="Enter phone number"
+                className="w-full h-[46px] px-6 py-3 border-2 shadow-md rounded-[10px] bg-white focus:outline-none focus:border-blue-400 font-NunitoSans font-semibold text-base"
+                required
+              />
+            </div>
+            <div className="grid place-content-between grid-cols-2 w-full h-[75px]">
+              <div className="w-full h-[75px] flex flex-col gap-[10px] relative ">
+                <label htmlFor="loaction" className="font-NunitoSans font-normal text-sm">
+                  Loaction
+                </label>
+                <select
+                  id="city"
+                  name="city"
+                  required
+                  className="w-[95%] h-[46px] px-6 py-3 border-2 shadow-md rounded-[10px] bg-white focus:outline-none focus:border-blue-400 font-NunitoSans font-semibold text-base appearance-none cursor-pointer"
+                >
+                  <option value="Select">Select</option>
+                  <option value="New York">New York</option>
+                  <option value="Los Angeles">Los Angeles</option>
+                  <option value="Chicago">Chicago</option>
+                  <option value="Houston">Houston</option>
+                  {/* Add more options as needed */}
+                </select>
+                <Image
+                  src={DownArrow}
+                  alt='arrow'
+                  className='absolute left-32 top-[50px] cursor-pointer'
+                />
+              </div>
+              <div className="w-full h-[75px] flex flex-col gap-[10px] relative">
+                <label htmlFor="working" className="font-NunitoSans font-normal text-sm">
+                  Both working
+                </label>
+                <select
+                  id="city"
+                  name="city"
+                  className="w-[95%] h-[46px] px-6 py-3 border-2 shadow-md rounded-[10px] bg-white focus:outline-none focus:border-blue-400 font-NunitoSans font-semibold text-base appearance-none cursor-pointer"
+                >
+                  <option value="Select">Select</option>
+                  <option value="New York">New York</option>
+                  <option value="Los Angeles">Los Angeles</option>
+                  <option value="Chicago">Chicago</option>
+                  <option value="Houston">Houston</option>
+                  {/* Add more options as needed */}
+                </select>
+                <Image
+                  src={DownArrow}
+                  alt='arrow'
+                  className='absolute left-32 top-[50px] cursor-pointer'
+                />
               </div>
             </div>
-          </div>
+            <div className="flex flex-col gap-[10px] w-full h-[75px]">
+              <label htmlFor="SocietyName" className="font-NunitoSans font-normal text-sm">
+                Society Name
+              </label>
+              <input
+                type="text"
+                id="SocietyName"
+                name="SocietyName"
+                value={formData.SocietyName}
+                onChange={InputChange}
+                placeholder="Enter name"
+                className="w-full h-[46px] px-6 py-3 border-2 shadow-md rounded-[10px] bg-white focus:outline-none focus:border-blue-400 font-NunitoSans font-semibold text-base"
+                required
+              />
+            </div>
+            <div className="ml-11 mr-auto"></div>
+          </form>
+          <button
+            type="submit"
+            form='myForm'
+            className="backgroud-button w-full px-6 py-4 text-white rounded-[40px] whitespace-nowrap font-Nunito font-extrabold text-lg">
+            Save & Next
+          </button>
         </div>
       </div>
+
+
     </div>
   );
 }
