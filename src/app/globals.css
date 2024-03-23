@@ -1,29 +1,27 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-
 .text {
-  color: #F58720;
+  color: #f58720;
   font-family: sans-serif;
 }
 
 .backgroud-color {
-  background: linear-gradient(to top, #F8BF3B, #EF5F3D, #F5712C, #FF8B13);
+  background: linear-gradient(to top, #f8bf3b, #ef5f3d, #f5712c, #ff8b13);
 }
 
 .backgroud-button {
-  background: linear-gradient(to left, #F8BF3B, #EF5F3D, #F5712C, #FF8B13);
+  background: linear-gradient(to left, #f8bf3b, #ef5f3d, #f5712c, #ff8b13);
 }
 
 .path {
   clip-path: polygon(100% 0%, 90% 50%, 100% 100%, 0 98%, 0% 50%, 0 0);
 }
-
 
 @keyframes slide {
   0% {
@@ -62,8 +60,8 @@
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -74,19 +72,19 @@
   left: 4px;
   bottom: 3px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-input:checked+.slider {
-  background-color: #2196F3;
+input:checked + .slider {
+  background-color: #2196f3;
 }
 
-input:focus+.slider {
-  box-shadow: 0 0 1px #2196F3;
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(23px);
   -ms-transform: translateX(23px);
   transform: translateX(23px);
@@ -108,9 +106,9 @@ input:checked+.slider:before {
   left: 0;
   right: 0;
   bottom: 0;
-  border: 2px solid #F58720;
-  -webkit-transition: .4s;
-  transition: .4s;
+  border: 2px solid #f58720;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider1:before {
@@ -120,20 +118,20 @@ input:checked+.slider:before {
   width: 20px;
   left: 4px;
   bottom: 1px;
-  background-color: #F58720;
-  -webkit-transition: .4s;
-  transition: .4s;
+  background-color: #f58720;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
-input:checked+.slider1 {
-  background-color: #Fff;
+input:checked + .slider1 {
+  background-color: #fff;
 }
 
-input:focus+.slider1 {
-  box-shadow: 0 0 1px #F58720;
+input:focus + .slider1 {
+  box-shadow: 0 0 1px #f58720;
 }
 
-input:checked+.slider1:before {
+input:checked + .slider1:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(23px);
@@ -146,4 +144,21 @@ input:checked+.slider1:before {
 
 .slider1.round:before {
   border-radius: 50%;
+}
+.custome-bg {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url("../Images/dropdownarrow.svg") no-repeat right center;
+  background-position: top 15px right 12px;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }

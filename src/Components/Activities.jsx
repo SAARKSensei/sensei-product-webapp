@@ -23,6 +23,7 @@ const Activities = () => {
   ];
 
   const inSchoolActivities = activityData[0];
+  console.log("inschool", inSchoolActivities);
   const afterSchoolActivities = activityData[1];
 
   return (
@@ -34,15 +35,14 @@ const Activities = () => {
           </p>
           <div className="flex items-center rounded-md">
             <select
-              className="w-24 border-none outline-none text-black font-nunitoSans text-base font-normal leading-normal tracking-tighter inline-flex p-2.5 flex-col items-start gap-2.5 rounded-md shadow-lg bg-no-repeat bg-right-center bg-top-3.75 bg-right-3"
-              style={{ backgroundImage: `url("../Images/dropdownArrow.svg"})` }}
+              className="w-24 border-none outline-none text-black font-nunitoSans text-sm font-normal leading-normal tracking-tighter inline-flex p-2.5 px-3 flex-col items-start gap-2.5 rounded-md shadow-lg custome-bg"
               value={value}
               onChange={handleChange}
             >
               {options.map((option, index) => (
                 <option
                   key={index}
-                  className="bg-yellow-300 text-black font-nunitoSans text-base font-normal leading-normal tracking-tighter"
+                  className="bg-[#FCD970] text-black font-nunitoSans text-base font-normal leading-normal tracking-tighter"
                   value={option.value}
                 >
                   {option.label}
@@ -61,10 +61,10 @@ const Activities = () => {
             />
           ))}
         </div>
-        <div className="w-full h-77 flex flex-col items-start gap-8">
+        <div className="w-full h-[306px] flex flex-col items-start gap-8">
           <div className="flex justify-between items-center w-full h-8">
             <p className="activitiesDivHeading">After-School Activities</p>
-            <div className="w-18 h-8 flex items-start gap-2.5">
+            <div className="w-[74px] h-8 flex items-start gap-2.5">
               <Image sizes="auto" src={LeftScroll} alt="leftscroll" />
               <Image
                 sizes="auto"

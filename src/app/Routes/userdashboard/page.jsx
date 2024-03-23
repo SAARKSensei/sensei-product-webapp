@@ -8,6 +8,7 @@ import { subjectData, counsellorData } from "../../../utils";
 import CounsellorCard from "../../../Components/CounsellorCard";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import Activities from "@/Components/Activities";
 
 const UserDashboard = () => {
   const parentData = useSelector((state) => state?.parents?.data);
@@ -16,11 +17,11 @@ const UserDashboard = () => {
   return (
     <div
       style={{ background: "linear-gradient(180deg, #EDE6DA 5.2%, #FFF 100%)" }}
-      className="w-full h-screen from-gray-200 to-white flex flex-col items-center"
+      className=" lg:px-20 w-full h-screen from-gray-200 to-white flex flex-col items-center"
     >
       {/* <Navbar /> */}
       <div className=" mt-[200px] flex items-center flex-col gap-5 w-full px-5">
-        <div className="inline-flex flex-col items-start gap-1 m-auto ml-4">
+        <div className="w-[353px] md:w-full inline-flex flex-col items-start gap-1 m-auto md:ml-4">
           <p className="text-gray-800 font-quicksand text-sm font-semibold tracking-tighter uppercase">
             Hello!
           </p>
@@ -33,31 +34,39 @@ const UserDashboard = () => {
             Lorem ipsum dolor sit, amet consectetur adipisicing.
           </p>
         </div>
-        {subjectData.map((item, i) => (
-          <Subject
-            key={i}
-            subjectName={item?.subjectName}
-            percentage={item?.percentage}
-            innerSubjectDivColor={item?.innerSubjectDivColor}
-            innerBarColor={item?.innerBarColor}
-          />
-        ))}
-
+        <div className=" md:w-full md:flex gap-5 justify-around">
+          <div className="hidden md:block bg-[#e8ecf0] flex-grow  rounded-lg p-5 mt-8">
+            <Activities />
+          </div>
+          <div>
+            {subjectData.map((item, i) => (
+              <Subject
+                key={i}
+                subjectName={item?.subjectName}
+                percentage={item?.percentage}
+                innerSubjectDivColor={item?.innerSubjectDivColor}
+                innerBarColor={item?.innerBarColor}
+              />
+            ))}
+          </div>
+        </div>
         <div className="w-[353px] mt-5 h-auto flex flex-col items-center gap-2.5">
           <h2 className="text-gray-800 text-center font-nunitoSans text-lg font-bold leading-5 tracking-tighter uppercase mb-5">
             Trending Counsellors
           </h2>
-          {counsellorData.map((item, i) => (
-            <CounsellorCard
-              key={i}
-              counsellorName={item?.counsellorName}
-              speciality={item?.speciality}
-              rating={item?.rating}
-              price={item?.price}
-            />
-          ))}
+          <div className="flex md:flex-row flex-col gap-5">
+            {counsellorData.map((item, i) => (
+              <CounsellorCard
+                key={i}
+                counsellorName={item?.counsellorName}
+                speciality={item?.speciality}
+                rating={item?.rating}
+                price={item?.price}
+              />
+            ))}
+          </div>
         </div>
-        <div className="inline-flex flex-col items-start gap-5 mb-6">
+        <div className="inline-flex flex-col md:items-center items-start gap-5 mb-6">
           <h2 className="text-black font-nunito text-lg font-semibold tracking-tighter">
             School Details
           </h2>
