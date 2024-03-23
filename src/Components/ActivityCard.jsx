@@ -15,6 +15,7 @@ import MyFavouriteThings from "../Images/myFavouriteThings.jpeg";
 import MyProudMomentsAndRest from "../Images/myProudMoments.jpeg";
 
 const ActivityCard = ({ unit, time, topic }) => {
+
   let specificTopicPicture;
 
   switch (unit) {

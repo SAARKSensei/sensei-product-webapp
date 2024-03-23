@@ -28,7 +28,7 @@ const Activities = () => {
 
   return (
     <>
-      <div className="w-full h-[317px] flex flex-col items-start gap-[30px]">
+      <div className="w-full flex flex-col items-start gap-[30px]">
         <div className="w-full h-11 flex justify-between items-end">
           <p className="text-[#333] font-NunitoSans text-lg font-bold leading-5 tracking-tighter uppercase">
             In-School Activities
@@ -61,20 +61,19 @@ const Activities = () => {
             />
           ))}
         </div>
-        <div className="w-full h-[306px] flex flex-col items-start gap-[30px]">
+        <div className="w-full flex flex-col items-start gap-[30px]">
           <div className="w-full h-8 flex justify-between items-center self-stretch">
             <p className="text-[#333] font-NunitoSans text-lg font-bold leading-5 tracking-tighter uppercase">After-School Activities</p>
             <div className="w-[74px] h-8 flex items-start gap-2.5">
-              <Image sizes="auto" src={LeftScroll} alt="leftscroll" />
+              <Image src={LeftScroll} alt="leftscroll" />
               <Image
-                sizes="auto"
                 className="w-8 h-8 drop-filter-shadow scale-[200%]"
                 src={RightScroll}
                 alt="rightscroll"
               />
             </div>
           </div>
-          <div className="flex w-[353px] items-start gap-5 overflow-x-scroll scrollbar-hide">
+          <div className="w-[353px] flex items-start gap-5 overflow-x-scroll scrollbar-hide">
             {afterSchoolActivities.map((item, i) => (
               <ActivityCard
                 key={i}
