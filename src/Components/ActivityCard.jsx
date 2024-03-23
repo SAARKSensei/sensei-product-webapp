@@ -52,7 +52,7 @@ const ActivityCard = ({ unit, time, topic }) => {
         {specificTopicPicture.length === 2 ? (
           <>
             <Image
-              fill
+              sizes="auto"
               className="w-68 h-46 rounded-xl object-cover"
               src={specificTopicPicture[0]}
               alt={topic}
@@ -61,7 +61,7 @@ const ActivityCard = ({ unit, time, topic }) => {
               <div className="w-68 h-46 rounded-xl absolute top-0 left-0 bg-blue-900 bg-opacity-90"></div>
             )}
             <Image
-              fill
+              sizes="auto"
               className="w-10 h-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               src={specificTopicPicture[1]}
               alt={topic}
@@ -69,7 +69,7 @@ const ActivityCard = ({ unit, time, topic }) => {
           </>
         ) : (
           <Image
-            fill
+            sizes="auto"
             className="w-68 h-46 rounded-xl object-cover"
             src={specificTopicPicture}
             alt={topic}
