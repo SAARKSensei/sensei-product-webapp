@@ -13,41 +13,8 @@ const page = () => {
       <div>
         <Navbar />
       </div>
-      <div className="flex ">
-        <div className="mt-36 ml-56 w-1/2 ">
-          <h1 className="font-semibold	text-2xl text-[#2C3D68]">
-            Order Summary
-          </h1>
-          <div className="h-40 w-10/12 border-2 border-slate-300	mt-5 rounded-lg flex felx-row">
-            <div>
-              <Image src={Book} className="h-32 w-50 mt-3" />
-            </div>
-            <div className="">
-              <h3 className="text-lg font-semibold	mt-8 tracking-wide text-[#2C3D68]">
-                Student Name
-              </h3>
-              <div className="flex flex-row gap-4 text-sm	">
-                <h6>Age: 7 years </h6>
-                <h6> Grade:1</h6>
-              </div>
-              <h4 className="mt-2 px-1 rounded-md border-2 border-blue-600 whitespace-nowrap	bg-blue-200">
-                Foundational Course
-              </h4>
-            </div>
-            <div>
-              <div className="flex gap-3 mt-5 ml-64">
-                <Image src={LikeIcon} />
-                <Image className="" src={DeletIcon} />
-              </div>
-              <h4 className="text-lg font-semibold ml-64 mt-16 text-[#2C3D68]">
-                ₹2999
-              </h4>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex flex-col">
-          <div className="flex whitespace-nowrap gap-3 mt-36 mb-7 ml-24">
+      <div className="flex flex-col sm:flex-row px-7 sm:px-0">
+      <div className="flex whitespace-nowrap gap-3 ml-16 mt-28 sm:hidden block">
             <h4 className="text-sm text-[#2C3D68] font-semibold	">Monthly</h4>
             <label className="switch">
               <input type="checkbox" />
@@ -55,24 +22,74 @@ const page = () => {
             </label>
             <h4 className="text-sm text-[#2C3D68] font-semibold	">Annually</h4>
           </div>
-          <div className="h-96 w-72 border-2 rounded-md	border-slate-300">
-            <h1 className="text-lg text-[#F58720] font-semibold	ml-5 mt-48	">
+        <div className="mt-5 sm:ml-56 w-1/2 sm:mt-28">
+          <h1 className="font-semibold	text-2xl text-[#2C3D68]">
+            Order Summary
+          </h1>
+          <div className="sm:h-40 sm:w-[648px] h-[128px] w-[359px] border-2 border-slate-300	mt-5 rounded-lg flex felx-row">
+            <div>
+              <Image src={Book} className="sm:h-[140px] sm:w-[140px] sm:mt-3 mt-5 w-[66px] h-[78px]" />
+            </div>
+            <div className="ml-4 sm:m-l0">
+              <h3 className="text-lg font-semibold mt-3	sm:mt-8 tracking-wide text-[#2C3D68]">
+                Student Name
+              </h3>
+              <div className="flex flex-row gap-4 text-sm	">
+                <h6>Age: 7 years </h6>
+                <h6> Grade:1</h6>
+              </div>
+              <h4 className="sm:mt-2 mt-3 sm:px-1 px-0.5 rounded-md border-2 border-blue-600 whitespace-nowrap	bg-blue-200">
+                Foundational Course
+              </h4>
+            </div>
+            <div>
+              <div className="flex gap-3 mt-5 sm:ml-64 ml-5">
+                <Image src={LikeIcon} />
+                <Image className="" src={DeletIcon} />
+              </div>
+              <h4 className="text-lg font-semibold sm:ml-64 sm:mt-16 ml-8 mt-5 text-[#2C3D68]">
+                ₹2999
+              </h4>
+            </div>
+          </div>
+          
+        </div>
+
+        <div className="flex flex-col">
+          <div className=" mb-7 mt-28 flex gap-2 flex-row hidden sm:flex">
+            <h4 className="text-sm text-[#2C3D68] font-semibold	">Monthly</h4>
+            <label className="switch">
+              <input type="checkbox" />
+              <span className="slider1 round"></span>
+            </label>
+            <h4 className="text-sm text-[#2C3D68] font-semibold	">Annually</h4>
+          </div>
+          <div className="sm:h-96 sm:w-72 sm:border-2 border-0 rounded-md ml-5 sm:ml-0 mt-20 sm:mt-0	sm:border-slate-300">
+            <h1 className="text-lg text-[#F58720] font-semibold	sm:ml-5 sm:mt-48 ">
               I have Refferal code
             </h1>
             <input
               type="text"
               placeholder="Enter Your Name"
-              className="px-8 py-2 border-2	rounded-md shadow-lg mt-3	ml-5"
+              className="sm:w-[250px] w-[318px] py-2 border-2	rounded-md shadow-lg mt-3	sm:ml-5"
             />
           </div>
         </div>
       </div>
-      <div className="flex justify-center text-center">
+      <div className="flex flex-col justify-center items-center text-center mt-10 sm:mt-0 sm:px-0 gap-5 sm:gap-0">
+        <div className="sm:hidden block flex gap-[250px] border-t-2">
+               <h6 className="font-bold	text-[#2C3D68]">Total</h6>
+               <h5 className="font-bold	text-[#2C3D68]">₹2999</h5>
+        </div>
         <button
           type="Submit"
-          className="backgroud-button py-2.5 rounded-full text-center px-32 text-white "
-        >
-          Save & Next
+          className="backgroud-button py-2.5 rounded-full text-center w-[353px] px-10 text-white hidden sm:block"
+        > Save & Next
+        </button>
+        <button
+          type="Submit"
+          className="backgroud-button w-[338px]  py-2 rounded-full text-center text-white sm:hidden block"
+        > Checkout
         </button>
       </div>
     </div>
