@@ -25,7 +25,7 @@ const page = () => {
                 <span className="text-gray-600 mr-2 py-2 px-2 font-bold ">
                   +91
                 </span>
-                <input type="text" className="w-full outline-none" />
+                <input type="tel" className="w-full outline-none" />
               </div>
               <p className="text-xs mx-7 sm:mx-0 font-Nunito font-light sm:w-[276px]">
                 A 4 digit OTP will be sent via SMS to verify your mobile number.
