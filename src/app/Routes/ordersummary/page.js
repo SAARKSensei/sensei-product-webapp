@@ -20,7 +20,7 @@ const page = () => {
           </h1>
           <div className="h-40 w-10/12 border-2 border-slate-300	mt-5 rounded-lg flex felx-row">
             <div>
-              <Image src={Book} className="h-32 w-50 mt-3" />
+              <Image src={Book} alt="book" className="h-32 w-50 mt-3" />
             </div>
             <div className="">
               <h3 className="text-lg font-semibold	mt-8 tracking-wide text-[#2C3D68]">
