@@ -31,7 +31,7 @@ const page = () => {
                 A 4 digit OTP will be sent via SMS to verify your mobile number.
               </p>
             </div>
-            <Link href="/Routes/OTP-verification">
+            <Link href="/Routes/otpverification">
               <button className="backgroud-button px-6 py-3 rounded-full text-white">
                 Login
               </button>
