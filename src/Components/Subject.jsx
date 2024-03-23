@@ -73,17 +73,17 @@ const Subject = ({
           />
         )}
         <div
-          className="w-full h-[120px] rounded-lg flex flex-col items-start gap-1.5 py-4 px-3"
+          className="w-full h-[120px] rounded-lg flex flex-col items-start gap-1.5 py-4 px-[10px]"
           style={colorforinnerSubjectDiv}
         >
-          <p className="text-[#2C3D68] font-quicksand text-3xl font-bold tracking-tighter">
+          <p className="text-[#2C3D68] font-Quicksand text-3xl font-normal leading-6 tracking-tighter">
             {percentage}
           </p>
-          <p className="text-[#333] font-quicksand text-lg font-medium tracking-tighter">
+          <p className="text-[#333] font-Quicksand text-lg font-medium tracking-tighter">
             {subjectName}
           </p>
-          <div className="w-80 h-4 flex-shrink-0">
-            <div className="w-80 h-4 flex-shrink-0 bg-white rounded-[18px]">
+          <div className="w-full h-4 flex-shrink-0">
+            <div className="w-full h-4 flex-shrink-0 bg-white rounded-[18px]">
               <div
                 className="h-4 rounded-[18px]"
                 style={sizeAndColorForInnerBar}
@@ -93,7 +93,7 @@ const Subject = ({
         </div>
       </div>
       {show && (
-        <div className="md:hidden w-[353px] h-[653px] inline-flex flex-col items-start gap-7.5 animate-fade-in">
+        <div className="w-[353px] h-[653px] inline-flex flex-col items-start gap-[30px] animate-fade-in">
           <Activities />
         </div>
       )}

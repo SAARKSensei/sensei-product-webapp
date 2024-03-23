@@ -1,22 +1,25 @@
 "use client"
 
 import React from 'react'
+import Image from 'next/image'
+import { useSelector } from 'react-redux'
 
 import mainLogo from "../Images/mainlogo.svg"
 import studentProfPic from "../Images/studentProfPic.svg"
 import NavbarRectangle from "../Images/Rectangle 719.svg"
 import Bell from "../Images/bell.svg"
-import Image from 'next/image'
 
 
 const Navbar3 = () => {
 
-    let idName;
+    const childData = useSelector(state => state?.children?.data)
+
+    let childName;
 
     if (window.location.pathname === "/Routes/userdashboard") {
-        idName = "Student 1 name"
+        childName = childData[0]?.childName;
     } else {
-        idName = "#sensei_Stu_Id";
+        childName = "#sensei_Stu_Id";
     }
 
 
@@ -28,7 +31,7 @@ const Navbar3 = () => {
                     <div className=" w-40 h-[50px] shrink-0 flex items-center">
                         <div className="relative z-10 w-[110px] h-5 translate-x-[10px]">
                             <Image className='absolute w-[110px]' src={NavbarRectangle} alt="slate" />
-                            <p className="absolute text-black font-NunitoSans text-xs font-bold bottom-0 right-[10px]">{idName}</p>
+                            <p className="absolute text-black font-NunitoSans text-xs font-bold bottom-0 right-[10px]">{childName}</p>
                         </div>
                         <Image className='z-20' src={studentProfPic} alt="profilepicture" />
                     </div>

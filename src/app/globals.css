@@ -179,3 +179,17 @@ input:checked+.slider1:before {
   scrollbar-width: none;
   /* Firefox */
 }
+
+.animate-fade-in {
+  animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
