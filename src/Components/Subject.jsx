@@ -54,7 +54,7 @@ const Subject = ({
           <>
             <Image
               sizes="auto"
-              className="absolute top-0 right-0"
+              className="absolute top-0 right-[41px]"
               src={specificSubjectPicture[0]}
               alt={subjectName}
             />
@@ -68,7 +68,7 @@ const Subject = ({
         ) : (
           <Image
             sizes="auto"
-            className="absolute top-0 right-0"
+            className="absolute top-0 right-[41px]"
             src={specificSubjectPicture}
             alt={subjectName}
           />
