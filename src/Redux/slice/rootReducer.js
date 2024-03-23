@@ -1,3 +1,5 @@
+"use client";
+
 import { combineReducers } from '@reduxjs/toolkit';
 import parentReducer from './parentSlice';
 import childrenReducer from './childrenSlice';

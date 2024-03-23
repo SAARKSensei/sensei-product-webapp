@@ -9,9 +9,7 @@ import Bell from "../Images/bell.svg"
 import Image from 'next/image'
 
 
-const Navbar3 = ({ params }) => {
-
-    console.log(params)
+const Navbar3 = () => {
 
     let idName;
 
@@ -23,7 +21,7 @@ const Navbar3 = ({ params }) => {
 
 
     return (
-        <div className='fixed flex z-50 w-full h-[120px] shrink-0 rounded-ee-[20px] navbar3-bg'>
+        <div className='fixed flex z-50 w-full h-[120px] shrink-0 rounded-b-[20px] navbar3-bg'>
             <div className="flex justify-between items-center w-full h-20 mt-auto pt-[10px] px-5">
                 <Image className='h-[50px]' src={mainLogo} alt="sensei logo" />
                 <div className="h-full flex items-center pb-5">

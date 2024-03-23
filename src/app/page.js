@@ -1,11 +1,25 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 
-import React from 'react'
-import Navbar from '@/Components/Navbar'
-import LeftSide from '@/Components/LeftSide'
+import React, { useEffect, useState } from 'react'
 import Link from 'next/link'
 
+import Navbar from '@/Components/Navbar'
+import LeftSide from '@/Components/LeftSide'
+
+import { useDispatch } from 'react-redux';
+import { fetchParentsRequest } from '../Redux/slice/parentSlice';
+
 const page = () => {
+
+  const [phoneNum, setPhoneNum] = useState("");
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchParentsRequest({ phoneNum }))
+  }, [dispatch, phoneNum])
+
+
   return (
     <div className="h-screen w-screen">
       <Navbar />
@@ -25,7 +39,10 @@ const page = () => {
                 <span className="text-gray-600 mr-2 py-2 px-2 font-bold ">
                   +91
                 </span>
-                <input type="tel" className="w-full outline-none" />
+                <input
+                  type="tel"
+                  onChange={e => setPhoneNum(e.target.value)}
+                  className="w-full outline-none" />
               </div>
               <p className="text-xs mx-7 sm:mx-0 font-Nunito font-light sm:w-[276px]">
                 A 4 digit OTP will be sent via SMS to verify your mobile number.

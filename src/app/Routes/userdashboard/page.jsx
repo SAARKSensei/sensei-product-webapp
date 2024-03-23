@@ -21,7 +21,7 @@ const UserDashboard = () => {
           <p className="text-gray-800 font-quicksand text-sm font-semibold tracking-tighter uppercase">
             Hello!
           </p>
-          <Link style={{ textDecoration: "none" }} href={address}>
+          <Link className="no-underline" href={address}>
             <p className="text-black font-quicksand text-6xl font-semibold tracking-tighter">
               Avatar name
             </p>
