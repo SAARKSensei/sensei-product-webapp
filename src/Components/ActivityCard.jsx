@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import Image from "next/image";
 
 import SelfIdentity from "../Images/selfIdentity.jpeg";
 import StrengthsAndChallenges from "../Images/strengthsAndChallenges.jpeg";
@@ -10,9 +13,9 @@ import Lock from "../Images/lock-50.png";
 
 import MyFavouriteThings from "../Images/myFavouriteThings.jpeg";
 import MyProudMomentsAndRest from "../Images/myProudMoments.jpeg";
-import Image from "next/image";
 
 const ActivityCard = ({ unit, time, topic }) => {
+
   let specificTopicPicture;
 
   switch (unit) {
@@ -44,47 +47,43 @@ const ActivityCard = ({ unit, time, topic }) => {
       break;
   }
   return (
-    <div className="w-68 h-61 flex flex-col items-start gap-2">
-      <div className="w-68 h-46 rounded-xl relative bg-gradient-to-b from-blue-900 to-blue-900 bg-opacity-40 bg-lightgray">
-        {time === "30mins" && (
-          <div className="w-68 h-46 rounded-xl absolute top-0 left-0 bg-blue-900 bg-opacity-40"></div>
-        )}
+    <div className="w-[272px] h-[244px] flex flex-col items-start gap-2">
+      <div className="w-[272px] h-[184px] rounded-[20px] relative activities-bg">
+        {time === "30mins" ? (
+          <div className="w-[272px] h-[184px] rounded-[20px] absolute top-0 left-0 bg-[#2c3d68] bg-opacity-40"></div>
+        ) : ""}
         {specificTopicPicture.length === 2 ? (
           <>
             <Image
-              sizes="auto"
-              className="w-68 h-46 rounded-xl object-cover"
+              className="w-[272px] h-[184px] rounded-[20px] object-cover"
               src={specificTopicPicture[0]}
               alt={topic}
             />
-            {time === "5mins" && (
-              <div className="w-68 h-46 rounded-xl absolute top-0 left-0 bg-blue-900 bg-opacity-90"></div>
-            )}
+            {time === "5mins" ?
+              <p className="w-[272px] h-[184px] rounded-[20px] absolute top-0 left-0 bg-[#2c3d68] bg-opacity-90"></p> : ""}
             <Image
-              sizes="auto"
-              className="w-10 h-10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+              className="w-[44px] h-[44px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
               src={specificTopicPicture[1]}
               alt={topic}
             />
           </>
         ) : (
           <Image
-            sizes="auto"
-            className="w-68 h-46 rounded-xl object-cover"
+            className="w-[272px] h-[184px] rounded-[20px] object-cover"
             src={specificTopicPicture}
             alt={topic}
           />
         )}
       </div>
-      <div className="flex justify-between items-start w-full">
-        <p className="text-orange-500 font-nunitoSans text-base font-bold leading-5 tracking-tighter uppercase">
+      <div className="flex justify-between items-start self-stretch">
+        <p className="text-[#FF8B13] font-NunitoSans text-sm font-bold leading-5 tracking-tighter uppercase">
           {unit}
         </p>
-        <p className="text-orange-500 text-right font-nunitoSans text-base font-bold leading-5 tracking-tighter uppercase">
+        <p className="text-[#FF8B13] text-right font-NunitoSans text-sm font-bold leading-5 tracking-tighter uppercase">
           {time}
         </p>
       </div>
-      <p className="text-blue-900 font-nunitoSans text-lg font-bold leading-5 tracking-tighter">
+      <p className="text-[#2C3D68] font-NunitoSans text-lg font-bold leading-5 tracking-tighter">
         {topic}
       </p>
     </div>
