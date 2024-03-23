@@ -1,7 +1,5 @@
-
 import "./globals.css";
-
-
+import StoreProvider from "@/Redux/Provider";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +9,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body suppressHydrationWarning >{children}</body>
+      <body suppressHydrationWarning>
+        <StoreProvider>{children}</StoreProvider>
+      </body>
     </html>
   );
 }
