@@ -5,14 +5,14 @@ import MaskGroup1 from "../Images/maskgroup1.svg";
 
 const CouncellorCard = ({ counsellorName, speciality, rating, price }) => {
   return (
-    <div className="w-88 h-38 flex items-center justify-end relative">
+    <div className="w-[350px] h-38 flex items-center justify-end relative">
       <Image
-        fill
+        size="auto"
         className="absolute left-0 z-50"
         src={MaskGroup1}
         alt="maskgroup"
       />
-      <div className="w-70 h-31 p-4 rounded-lg flex items-center justify-end gap-6 bg-white shadow-md">
+      <div className="w-[278px] h-31 p-4 rounded-lg flex items-center justify-end gap-6 bg-white shadow-md">
         <div className="flex flex-col items-center gap-1">
           <p className="text-black font-nunitoSans text-base font-semibold tracking-tighter">
             {counsellorName}
@@ -25,8 +25,8 @@ const CouncellorCard = ({ counsellorName, speciality, rating, price }) => {
           </p>
         </div>
         <div className="w-13 h-13 relative flex items-center justify-center mb-auto">
-          <Image fill src={Star} alt="star" />
-          <p className="absolute text-blue-800 font-nunitoSans text-sm font-extrabold tracking-tighter top-5 left-3.75">
+          <Image size="auto" src={Star} alt="star" />
+          <p className="absolute text-blue-800 font-nunitoSans text-sm font-extrabold tracking-tighter top-[14px] left-3.75">
             {rating}
           </p>
         </div>

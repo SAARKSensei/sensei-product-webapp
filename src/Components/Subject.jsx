@@ -46,7 +46,7 @@ const Subject = ({
   return (
     <>
       <div
-        className="w-88 h-38 flex-shrink-0 relative flex items-end cursor-pointer"
+        className="w-[353px] h-38 flex-shrink-0 relative flex items-end cursor-pointer"
         onClick={() => setShow(!show)}
       >
         {specificSubjectPicture.length === 2 ? (
@@ -59,7 +59,7 @@ const Subject = ({
             />
             <Image
               sizes="auto"
-              className="absolute top-8 right-0"
+              className="absolute top-0 right-0"
               src={specificSubjectPicture[1]}
               alt={subjectName}
             />
@@ -93,7 +93,7 @@ const Subject = ({
         </div>
       </div>
       {show && (
-        <div className="w-88 h-163 inline-flex flex-col items-start gap-7.5 animate-fade-in">
+        <div className="w-[353px] h-163 inline-flex flex-col items-start gap-7.5 animate-fade-in">
           <Activities />
         </div>
       )}

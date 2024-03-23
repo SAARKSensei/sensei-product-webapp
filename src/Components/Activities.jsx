@@ -51,7 +51,7 @@ const Activities = () => {
             </select>
           </div>
         </div>
-        <div className="flex w-88 items-start gap-5 overflow-x-scroll scrollbar-hide">
+        <div className="flex w-[353px] items-start gap-5 overflow-x-scroll scrollbar-hide">
           {inSchoolActivities.map((item, i) => (
             <ActivityCard
               key={i}
@@ -65,16 +65,16 @@ const Activities = () => {
           <div className="flex justify-between items-center w-full h-8">
             <p className="activitiesDivHeading">After-School Activities</p>
             <div className="w-18 h-8 flex items-start gap-2.5">
-              <Image fill src={LeftScroll} alt="leftscroll" />
+              <Image sizes="auto" src={LeftScroll} alt="leftscroll" />
               <Image
-                fill
+                sizes="auto"
                 className="w-8 h-8 filter drop-shadow-sm transform scale-200"
                 src={RightScroll}
                 alt="rightscroll"
               />
             </div>
           </div>
-          <div className="flex w-88 items-start gap-5 overflow-x-scroll scrollbar-hide">
+          <div className="flex w-[353px] items-start gap-5 overflow-x-scroll scrollbar-hide">
             {afterSchoolActivities.map((item, i) => (
               <ActivityCard
                 key={i}
