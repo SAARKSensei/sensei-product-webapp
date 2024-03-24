@@ -28,8 +28,8 @@ const Activities = () => {
 
   return (
     <>
-      <div className="w-full flex flex-col items-start gap-[30px]">
-        <div className="w-full h-11 flex justify-between items-end">
+      <div className="w-full flex flex-col items-start sm:items-center gap-[30px]">
+        <div className="w-[353px] sm:w-full h-11 flex justify-between items-end">
           <p className="text-[#333] font-NunitoSans text-lg font-bold leading-5 tracking-tighter uppercase">
             In-School Activities
           </p>
@@ -51,7 +51,7 @@ const Activities = () => {
             </select>
           </div>
         </div>
-        <div className="w-[353px] flex items-start gap-5 overflow-x-scroll scrollbar-hide">
+        <div className="w-[353px] sm:w-full flex items-start gap-5 overflow-x-scroll scrollbar-hide cursor-pointer">
           {inSchoolActivities.map((item, i) => (
             <ActivityCard
               key={i}
@@ -61,8 +61,8 @@ const Activities = () => {
             />
           ))}
         </div>
-        <div className="w-full flex flex-col items-start gap-[30px]">
-          <div className="w-full h-8 flex justify-between items-center self-stretch">
+        <div className="w-full flex flex-col items-start sm:items-center gap-[30px]">
+          <div className="w-[353px] sm:w-full h-8 flex justify-between items-center">
             <p className="text-[#333] font-NunitoSans text-lg font-bold leading-5 tracking-tighter uppercase">After-School Activities</p>
             <div className="w-[74px] h-8 flex items-start gap-2.5">
               <Image src={LeftScroll} alt="leftscroll" />
@@ -73,7 +73,7 @@ const Activities = () => {
               />
             </div>
           </div>
-          <div className="w-[353px] flex items-start gap-5 overflow-x-scroll scrollbar-hide">
+          <div className="w-[353px] sm:w-full flex items-start gap-5 overflow-x-scroll scrollbar-hide cursor-pointer">
             {afterSchoolActivities.map((item, i) => (
               <ActivityCard
                 key={i}

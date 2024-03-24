@@ -7,6 +7,7 @@ import Star from "../Images/star2.svg";
 import MaskGroup1 from "../Images/maskgroup1.svg";
 
 const CouncellorCard = ({ counsellorName, speciality, rating, price }) => {
+
   return (
     <div className="w-[350px] h-[150px] flex items-center justify-end relative">
       <Image

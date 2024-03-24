@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 
@@ -9,8 +9,13 @@ import CounsellorCard from "../../../Components/CounsellorCard";
 import Background1 from '@/Components/Background1.js'
 
 import { subjectData, counsellorData } from "../../../utils";
+import Activities from "@/Components/Activities";
 
 const UserDashboard = () => {
+
+  const [show, setShow] = useState(false);
+
+  console.log("dash", show)
 
   const parentData = useSelector((state) => state?.parents?.data);
   let address = `/user/${parentData?.name}`;
@@ -19,8 +24,8 @@ const UserDashboard = () => {
     <div className="w-full h-screen flex flex-col items-center  from-gray-200 to-white ">
       <Background1 />
       <Navbar3 />
-      <div className="w-full mt-[200px] flex items-center flex-col gap-5 px-5">
-        <div className="inline-flex flex-col items-start gap-1 mt-0 mr-auto mb-0 ml-[17px]">
+      <div className="w-full mt-[200px] flex flex-col items-center gap-5 px-5">
+        <div className="w-[353px] sm:w-[1015px] inline-flex flex-col items-start gap-1">
           <p className="text-[#333] font-Quicksand text-sm sm:text-lg font-semibold sm:font-bold tracking-tighter uppercase">
             Hello!
           </p>
@@ -33,34 +38,45 @@ const UserDashboard = () => {
             Let’s start your journey to a brighter future.
           </p>
         </div>
-        {subjectData.map((item, i) => (
-          <Subject
-            key={i}
-            subjectName={item?.subjectName}
-            percentage={item?.percentage}
-            innerSubjectDivColor={item?.innerSubjectDivColor}
-            innerBarColor={item?.innerBarColor}
-          />
-        ))}
+        <div className="w-full sm:w-[1015px] flex justify-center items-center sm:items-end sm:gap-[26px]">
+          {show && (
+            <div className="w-[632px] h-[703px] hidden sm:flex items-center justify-center rounded-[10px] p-5 sm:bg-[#CEE2E5] animate-fade-in">
+              <Activities />
+            </div>
+          )}
+          <div className="w-full flex flex-col items-center gap-5 sm:gap-10" onClick={() => setShow(!show)}>
+            {subjectData.map((item, i) => (
+              <Subject
+                key={i}
+                subjectName={item?.subjectName}
+                percentage={item?.percentage}
+                innerSubjectDivColor={item?.innerSubjectDivColor}
+                innerBarColor={item?.innerBarColor}
+              />
+            ))}
+          </div>
+        </div>
         <div className="w-[353px] mt-5 h-auto flex flex-col items-center gap-2.5">
           <h2 className="text-[#333] text-center font-NunitoSans text-lg font-normal leading-5 tracking-tighter uppercase mb-5">
             Trending Counsellors
           </h2>
-          {counsellorData.map((item, i) => (
-            <CounsellorCard
-              key={i}
-              counsellorName={item?.counsellorName}
-              speciality={item?.speciality}
-              rating={item?.rating}
-              price={item?.price}
-            />
-          ))}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5">
+            {counsellorData.map((item, i) => (
+              <CounsellorCard
+                key={i}
+                counsellorName={item?.counsellorName}
+                speciality={item?.speciality}
+                rating={item?.rating}
+                price={item?.price}
+              />
+            ))}
+          </div>
         </div>
-        <div className="inline-flex flex-col items-start gap-5 mb-6">
+        <div className=" w-[353px] sm:w-1/2 inline-flex flex-col items-start gap-5 mb-6">
           <h2 className="text-black font-Nunito text-lg font-semibold tracking-tighter leading-normal">
             School Details
           </h2>
-          <div className="w-[353px] h-[140px] shrink-0 rounded-[20px] bg-[#2C3D68] py-2.5 px-[15px] flex items-center justify-between">
+          <div className="w-full h-[140px] shrink-0 rounded-[20px] bg-[#2C3D68] py-2.5 px-[15px] flex items-center justify-between">
             <div className="flex flex-col gap-2.5">
               <p className="text-white font-Nunito text-xs font-normal tracking-tighter leading-normal">
                 School Name:
