@@ -15,7 +15,8 @@ module.exports = {
       fontFamily: {
         Montserrat: "'Montserrat', serif",
         Nunito: "'Nunito', serif",
-        NunitoSans: "'Nunito sans', serif"
+        NunitoSans: "'Nunito sans', serif",
+        Quicksand: "'Quicksand', sans-serif"
       },
     },
   },
