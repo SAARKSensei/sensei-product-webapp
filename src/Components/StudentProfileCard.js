@@ -13,7 +13,7 @@ const StudentProfileCard = ({ child }) => {
 
     return (
         <Link
-            href={`/user/${child?.childName}/userdashboard`}
+            href={`/Routes/child/dashboard/${child?.childName}`}
             className='relative w-[164px] h-[273px] sm:w-[330px] sm:h-[169px] flex flex-col shrink-0 rounded-[10px] p-[10px] sm:p-5 gap-[10px] bg-white cursor-pointer studentprofilecard-shadow'>
             <div className="absolute top-[19px] left-0 sm:left-[101px] z-30">
                 <Image src={StudentReactangle} alt="studentReactangle" />

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Image from "next/image";
 
-import LeftScroll from "../Images/leftScroll.svg";
-import RightScroll from "../Images/rightScroll.svg";
+import ActivityCard from "./ActivityCard"
 
-import { activityData } from "../utils";
-import ActivityCard from "./ActivityCard";
+import LeftScroll from "@/Images/leftScroll.svg";
+import RightScroll from "@/Images/rightScroll.svg";
+
+import { activityData } from "@/utils";
 
 const Activities = () => {
 

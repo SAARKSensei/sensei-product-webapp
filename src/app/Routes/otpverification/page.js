@@ -47,6 +47,7 @@ const Page = () => {
 
   //Conditional routing by checking available data
   const router = useRouter();
+  const parentName = parentData?.name;
 
   const detailsHandler = () => {
     if (id === undefined && childData.length === 0) {
@@ -54,7 +55,7 @@ const Page = () => {
     } else if (childData.length === 0) {
       router.push('/Routes/childdetails')
     } else {
-      router.push('/Routes/userprofile')
+      router.push(`/Routes/parent/${parentName}`)
     }
   }
 

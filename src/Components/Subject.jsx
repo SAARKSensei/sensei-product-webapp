@@ -20,8 +20,6 @@ const Subject = ({
 
   const [show, setShow] = useState(false);
 
-  console.log("subject", show)
-
   const colorforinnerSubjectDiv = {
     background: innerSubjectDivColor,
   };

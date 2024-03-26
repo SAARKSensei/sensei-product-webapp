@@ -2,7 +2,6 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { useSelector } from 'react-redux'
 
 import mainLogo from "../Images/mainlogo.svg"
 import studentProfPic from "../Images/studentProfPic.svg"
@@ -12,16 +11,7 @@ import Bell from "../Images/bell.svg"
 
 const Navbar3 = () => {
 
-    const childData = useSelector(state => state?.children?.data)
-
-    let childName;
-
-    if (window.location.pathname === "/Routes/userdashboard") {
-        childName = childData[0]?.childName;
-    } else {
-        childName = "#sensei_Stu_Id";
-    }
-
+    let child_name = (window.location.pathname.split("/")[4]);
 
     return (
         <div className='fixed flex z-50 w-full h-[120px] shrink-0 rounded-b-[20px] navbar3-bg'>
@@ -31,7 +21,7 @@ const Navbar3 = () => {
                     <div className=" w-40 h-[50px] shrink-0 flex items-center">
                         <div className="relative z-10 w-[110px] h-5 translate-x-[10px]">
                             <Image className='absolute w-[110px]' src={NavbarRectangle} alt="slate" />
-                            <p className="absolute text-black font-NunitoSans text-xs font-bold bottom-0 right-[10px]">{childName}</p>
+                            <p className="absolute text-black font-NunitoSans text-xs font-bold bottom-[3px] right-[30px]">{child_name}</p>
                         </div>
                         <Image className='z-20' src={studentProfPic} alt="profilepicture" />
                     </div>

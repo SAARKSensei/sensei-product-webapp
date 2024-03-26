@@ -1,24 +1,24 @@
 "use client";
+
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
-import Subject from "../../../Components/Subject";
+import Subject from "@/Components/Subject";
 import Navbar3 from '@/Components/Navbar3';
-import CounsellorCard from "../../../Components/CounsellorCard";
+import CounsellorCard from "@/Components/CounsellorCard";
 import Background1 from '@/Components/Background1.js'
-
-import { subjectData, counsellorData } from "../../../utils";
 import Activities from "@/Components/Activities";
+
+import { subjectData, counsellorData } from "@/utils";
 
 const UserDashboard = () => {
 
   const [show, setShow] = useState(false);
 
-  console.log("dash", show)
-
   const parentData = useSelector((state) => state?.parents?.data);
-  let address = `/user/${parentData?.name}`;
+  let address = `/Routes/parent/${parentData?.name}`;
 
   return (
     <div className="w-full h-screen flex flex-col items-center  from-gray-200 to-white ">

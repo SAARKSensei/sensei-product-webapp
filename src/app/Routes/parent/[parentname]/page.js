@@ -1,36 +1,27 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
-import { fetchChildrenRequest, resetChildren } from '../../../Redux/slice/childrenSlice';
-import { resetParents } from '../../../Redux/slice/parentSlice'
+import { resetChildren } from '@/Redux/slice/childrenSlice';
+import { resetParents } from '@/Redux/slice/parentSlice';
 
 import Navbar3 from '@/Components/Navbar3'
 import Background1 from '@/Components/Background1.js'
 import Editicon from '@/Components/EditIcon'
 import StudentProfileCard from '@/Components/StudentProfileCard'
 
-import ParentProfileIcon from "../../../Images/profileParentIcon.svg"
-import BranchLinesMob from "../../../Images/branchlinesmob.svg";
-import BranchLinesDesk from "../../../Images/bigbranches.svg"
+import ParentProfileIcon from "@/Images/profileParentIcon.svg"
+import BranchLinesMob from "@/Images/branchlinesmob.svg";
+import BranchLinesDesk from "@/Images/bigbranches.svg"
 
 const page = () => {
 
-    const parentData = useSelector(state => state?.parents?.data)
-    const childData = useSelector(state => state?.children?.data)
-    const dispatch = useDispatch();
-
-    // console.log("parent", parentData, "child", childData)
-
-    const id = parentData?.id;
-
-    useEffect(() => {
-        dispatch(fetchChildrenRequest({ id }))
-    }, [dispatch, id])
+    const parentData = useSelector(state => state?.parents?.data);
+    const childData = useSelector(state => state?.children?.data);
 
     let occupation;
     let kids = childData.length;
@@ -41,6 +32,7 @@ const page = () => {
         occupation = "Only one";
     }
 
+    const dispatch = useDispatch();
     const router = useRouter();
 
     const deleteUser = async () => {
