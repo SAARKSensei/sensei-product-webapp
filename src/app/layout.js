@@ -1,5 +1,7 @@
 import "./globals.css";
 import StoreProvider from "@/Redux/Provider";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata = {
   title: "Create Next App",
@@ -10,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body suppressHydrationWarning>
-        <StoreProvider>{children}</StoreProvider>
+        <StoreProvider>{children}<ToastContainer /></StoreProvider>
       </body>
     </html>
   );

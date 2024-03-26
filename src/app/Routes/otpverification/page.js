@@ -2,16 +2,18 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { useSearchParams } from 'next/navigation'
+import { useSelector } from 'react-redux'
+
 import Danger from '@/Images/danger.svg'
 import Navbar from '@/Components/Navbar'
 import LeftSide from '@/Components/LeftSide'
-import { useSelector } from 'react-redux'
 
 const Page = () => {
 
-  const parentData = useSelector(state => state?.parents?.data);
+  const searchParams = useSearchParams()
 
-  const id = parentData?.id;
+  const phone = searchParams.get('phone')
 
   return (
     <div className="h-screen w-screen ">
@@ -35,7 +37,7 @@ const Page = () => {
               </h6>
             </div>
             <h6 className="text-xs sm:mt-8">Enter the OTP received to</h6>
-            <h1 className="mt-3 text-3xl font-semibold">+91 {parentData?.phone}</h1>
+            <h1 className="mt-3 text-3xl font-semibold">+91 {phone}</h1>
             <p className="mt-2.5 mx-auto sm:mx-0 text-xs w-[300px]">
               A 4 digit OTP will be sent via SMS to verify your mobile number.
             </p>

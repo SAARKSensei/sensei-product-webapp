@@ -1,23 +1,28 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-"use client"
+"use client";
 
 import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
 
 import Navbar from '@/Components/Navbar'
 import LeftSide from '@/Components/LeftSide'
 
-import { useDispatch } from 'react-redux';
-import { fetchParentsRequest } from '../Redux/slice/parentSlice';
+import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 const page = () => {
 
+  const router = useRouter();
+
   const [phoneNum, setPhoneNum] = useState("");
-  const dispatch = useDispatch();
+  const [login, setLogin] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchParentsRequest({ phoneNum }))
-  }, [dispatch, phoneNum])
+    if (phoneNum.length === 10) {
+      setLogin(true);
+    }
+
+  }, [phoneNum])
+
 
 
   return (
@@ -48,11 +53,16 @@ const page = () => {
                 A 4 digit OTP will be sent via SMS to verify your mobile number.
               </p>
             </div>
-            <Link href="/Routes/otpverification">
-              <button className="backgroud-button px-6 py-3 rounded-full text-white">
-                Login
-              </button>
-            </Link>
+            {login && (
+              <Link href={{
+                pathname: '/Routes/otpverification',
+                query: { phone: phoneNum },
+              }}>
+                <button className="backgroud-button px-6 py-3 rounded-full text-white">
+                  Login
+                </button>
+              </Link>
+            )}
             <p className="hidden sm:block text-xs pr-28 w-full">
               By signing in, you agree to the{" "}
               <span className="font-semibold	">Terms of Service</span> and{" "}
