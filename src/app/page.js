@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react'
 
 import Navbar from '@/Components/Navbar'
 import LeftSide from '@/Components/LeftSide'
-import { toast } from "react-toastify";
 
 
 import Link from 'next/link';
