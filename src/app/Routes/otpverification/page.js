@@ -9,8 +9,8 @@ import Navbar from '@/Components/Navbar'
 import LeftSide from '@/Components/LeftSide'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useRef , useEffect } from 'react';
-import { fetchParentsSuccess } from '@/Redux/slice/parentSlice';
-import { fetchChildrenSuccess } from '@/Redux/slice/childrenSlice';
+import { fetchParentsRequest, fetchParentsSuccess } from '@/Redux/slice/parentSlice';
+import { fetchChildrenRequest, fetchChildrenSuccess } from '@/Redux/slice/childrenSlice';
 
 
 const Page = () => {
@@ -21,6 +21,9 @@ const Page = () => {
 
 const parentData = useSelector(state => state?.parents?.data);
 const childData = useSelector(state => state?.children?.data);
+
+console.log(parentData);
+console.log(childData);
 
   const id = parentData?.id;
    console.log(id);
@@ -36,21 +39,14 @@ const childData = useSelector(state => state?.children?.data);
       inputRefs[index + 1].current.focus();
     };
   }
-    const handleChange = (index, value) => {
-      const newOtp = [...otp];
-      newOtp[index] = value;
-      setOtp(newOtp);
-      if (value !== '' && index < 3) {
-        inputRefs[index + 1].current.focus();
-      };
-  }
 
 const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchParentsSuccess)
-    dispatch(fetchChildrenSuccess)
-    
+
+    dispatch(fetchChildrenRequest ({ id }))
+    dispatch(fetchParentsRequest({ phone }))
+
   }, [])
   
 
