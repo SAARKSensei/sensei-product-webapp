@@ -44,21 +44,21 @@ const ActivityCard = ({ unit, time, topic }) => {
       break;
   }
   return (
-    <div className="w-68 h-61 flex flex-col items-start gap-2">
-      <div className="w-68 h-46 rounded-xl relative bg-gradient-to-b from-blue-900 to-blue-900 bg-opacity-40 bg-lightgray">
+    <div className="w-[272px] h-[306px] flex flex-col items-start gap-2 bg-yellow-200">
+      <div className="w-[272px] h-[244px] rounded-xl relative bg-gradient-to-b from-blue-900 to-blue-900 bg-opacity-40 bg-lightgray">
         {time === "30mins" && (
-          <div className="w-68 h-46 rounded-xl absolute top-0 left-0 bg-blue-900 bg-opacity-40"></div>
+          <div className="w-[272px] h-[20px] text-black rounded-xl absolute top-0 left-0 bg-opacity-40"></div>
         )}
         {specificTopicPicture.length === 2 ? (
           <>
             <Image
               sizes="auto"
-              className="w-68 h-46 rounded-xl object-cover"
+              className="w-[272px] h-[306px] rounded-xl object-cover"
               src={specificTopicPicture[0]}
               alt={topic}
             />
             {time === "5mins" && (
-              <div className="w-68 h-46 rounded-xl absolute top-0 left-0 bg-blue-900 bg-opacity-90"></div>
+              <div className="w-[272px] h-[306px] rounded-xl absolute top-0 left-0 bg-blue-900 bg-opacity-90"></div>
             )}
             <Image
               sizes="auto"
@@ -70,7 +70,7 @@ const ActivityCard = ({ unit, time, topic }) => {
         ) : (
           <Image
             sizes="auto"
-            className="w-68 h-46 rounded-xl object-cover"
+            className="w-[272px] h-[306px] rounded-xl object-cover"
             src={specificTopicPicture}
             alt={topic}
           />

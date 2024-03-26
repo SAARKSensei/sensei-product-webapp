@@ -27,7 +27,7 @@ const Activities = () => {
 
   return (
     <>
-      <div className="flex flex-col items-start gap-8 w-full h-80">
+      <div className="flex flex-col items-start gap-8 w-full h-80 ">
         <div className="flex justify-between items-end w-full h-11">
           <p className="text-gray-900 font-nunitoSans text-lg font-bold leading-5 tracking-tighter uppercase">
             In-School Activities
@@ -61,11 +61,11 @@ const Activities = () => {
             />
           ))}
         </div>
-        <div className="w-full h-77 flex flex-col items-start gap-8">
+        <div className="w-full h-[306px] flex flex-col items-start gap-8 bg-red-200 ">
           <div className="flex justify-between items-center w-full h-8">
-            <p className="activitiesDivHeading">After-School Activities</p>
-            <div className="w-18 h-8 flex items-start gap-2.5">
-              <Image sizes="auto" src={LeftScroll} alt="leftscroll" />
+            <p className="activitiesDivHeading text-gray-900 font-nunitoSans text-lg font-bold leading-5 tracking-tighter uppercase">After-School Activities</p>
+            <div className="w-20 h-8 flex items-start gap-2.5">
+              <Image sizes="auto " className="w-18 h-8" src={LeftScroll} alt="leftscroll" />
               <Image
                 sizes="auto"
                 className="w-8 h-8 filter drop-shadow-sm transform scale-200"
