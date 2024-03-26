@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 import Subject from "@/Components/Subject";
 import Navbar3 from '@/Components/Navbar3';
@@ -23,7 +22,7 @@ const UserDashboard = () => {
   return (
     <div className="w-full h-screen flex flex-col items-center  from-gray-200 to-white ">
       <Background1 />
-      <Navbar3 />
+      <Navbar3 childname={window.location.pathname.split("/")[4]} />
       <div className="w-full mt-[200px] flex flex-col items-center gap-5 px-5">
         <div className="w-[353px] sm:w-[1015px] inline-flex flex-col items-start gap-1">
           <p className="text-[#333] font-Quicksand text-sm sm:text-lg font-semibold sm:font-bold tracking-tighter uppercase">

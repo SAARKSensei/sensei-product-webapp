@@ -44,7 +44,7 @@ const page = () => {
     return (
         <div className='w-full h-auto flex flex-col items-center'>
             <Background1 />
-            <Navbar3 />
+            <Navbar3 studentId={"#sensei_Stu_Id"} />
             <div className="mt-[150px] w-[353px] sm:w-[90%] flex flex-col sm:flex-row items-center justify-center mx-auto">
                 <div className='w-full sm:w-max'>
                     <div className="w-[353px] h-[167px] rounded-[20px] bg-white studentprofilecard-shadow shrink-0 p-5 relative flex flex-col justify-between">
