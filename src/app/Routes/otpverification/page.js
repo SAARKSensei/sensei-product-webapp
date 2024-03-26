@@ -13,6 +13,20 @@ const Page = () => {
   const searchParams = useSearchParams()
 
   const phone = searchParams.get('phone');
+  const id = parentData?.id;
+
+
+  const [otp, setOtp] = useState(['', '', '', '']);
+  const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+
+  const handleChange = (index, value) => {
+    const newOtp = [...otp];
+    newOtp[index] = value;
+    setOtp(newOtp);
+    if (value !== '' && index < 3) {
+      inputRefs[index + 1].current.focus();
+    };
+  }
 
   return (
     <div className="h-screen w-screen ">
@@ -40,7 +54,7 @@ const Page = () => {
             <p className="mt-2.5 mx-auto sm:mx-0 text-xs w-[300px]">
               A 4 digit OTP will be sent via SMS to verify your mobile number.
             </p>
-            <div className="flex justify-center sm:justify-start gap-4 mt-4 ">
+            {/* <div className="flex justify-center sm:justify-start gap-4 mt-4 ">
               <input
                 type="text"
                 className="sm:w-12 w-16 sm:h-12 h-16 border-2 border-slate-500 rounded-md	"
@@ -57,7 +71,21 @@ const Page = () => {
                 type="text"
                 className="sm:w-12 w-16 sm:h-12 h-16 border-2 border-slate-500 rounded-md	"
               />
+            </div> */}
+            <div className='flex justify-center sm:justify-start gap-4 mt-4'>
+              {otp.map((digit, index) => (
+                <input
+                  className="sm:w-12 w-16 sm:h-12 h-16 border-2 border-slate-500 rounded-md	text-center"
+                  key={index}
+                  ref={inputRefs[index]}
+                  type="text"
+                  maxLength={1}
+                  value={digit}
+                  onChange={(e) => handleChange(index, e.target.value)}
+                />
+              ))}
             </div>
+
             <div className="w-[300px] mx-auto mt-3 flex justify-between">
               <h4 className="text-[#F58720] font-semibold text-sm">
                 Resend OTP
