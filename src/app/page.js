@@ -5,7 +5,7 @@ import React, { useEffect, useState } from 'react'
 
 import Navbar from '@/Components/Navbar'
 import LeftSide from '@/Components/LeftSide'
-import { toast } from "react-toastify";
+
 
 
 import { fetchParentsRequest } from '../Redux/slice/parentSlice';
@@ -19,28 +19,7 @@ const page = () => {
   const router = useRouter();
 
 
-  const submitHandler = ()=>{
-   
-
-   if (phoneNum.length<10 && phoneNum.length===0) {
-      toast.error(
-        "The Phone Number should be 10 digits"
-      )
-    
-   } else {
-    router.replace({
-      pathname:'/Routes/otpverification',
-      query:{phoneNum},
-    });
-   } 
-  }
-
-
-  // useEffect(() => {
-  //   dispatch(fetchParentsRequest({ phoneNum }))
-  // }, [dispatch, phoneNum])
-
-
+  
 
   return (
     <div className="h-screen w-screen">
@@ -73,7 +52,7 @@ const page = () => {
                 A 4 digit OTP will be sent via SMS to verify your mobile number.
               </p>
             </div>
-              <button onClick={submitHandler} className="backgroud-button px-6 py-3 rounded-full text-white" >
+              <button className="backgroud-button px-6 py-3 rounded-full text-white" >
                 Login
               </button>
         

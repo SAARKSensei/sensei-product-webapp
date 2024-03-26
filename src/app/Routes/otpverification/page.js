@@ -5,20 +5,19 @@ import Image from 'next/image'
 import Danger from '@/Images/danger.svg'
 import Navbar from '@/Components/Navbar'
 import LeftSide from '@/Components/LeftSide'
-import { useSelector } from 'react-redux'
-import { useState, useRef } from 'react';
-import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux'
+import { useState, useRef , useEffect } from 'react';
+import { fetchParentsSuccess } from '@/Redux/slice/parentSlice';
+import { fetchChildrenSuccess } from '@/Redux/slice/childrenSlice';
+
 
 const Page = () => {
 
-  const router = useRouter();
-  const { phoneNum } = router.query;
-
-
-  const parentData = useSelector(state => state?.parents?.data);
+const parentData = useSelector(state => state?.parents?.data);
+const childData = useSelector(state => state?.children?.data);
 
   const id = parentData?.id;
-
+   console.log(id);
   
     const [otp, setOtp] = useState(['', '', '', '']);
     const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
@@ -30,8 +29,24 @@ const Page = () => {
       if (value !== '' && index < 3) {
         inputRefs[index + 1].current.focus();
       };
-  
   }
+
+const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchParentsSuccess)
+    dispatch(fetchChildrenSuccess)
+    
+  }, [])
+  
+
+  // const detilesHandler = ()=>{
+  //       if () {
+          
+  //       } else {
+          
+  //       }
+  // }
 
   return (
     <div className="h-screen w-screen ">
@@ -97,7 +112,7 @@ const Page = () => {
               </h4>
               <h4 className="text-xs">0:50 sec</h4>
             </div>
-            <button className="backgroud-button w-28 h-10 mt-5 px-5 py-2 text-white rounded-full self-center sm:self-start">
+            <button  className="backgroud-button w-28 h-10 mt-5 px-5 py-2 text-white rounded-full self-center sm:self-start">
               Continue
             </button>
           </div>
