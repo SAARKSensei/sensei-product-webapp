@@ -2,6 +2,8 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { useSearchParams } from 'next/navigation'
+
 import Danger from '@/Images/danger.svg'
 import Navbar from '@/Components/Navbar'
 import LeftSide from '@/Components/LeftSide'
@@ -13,15 +15,27 @@ import { fetchChildrenSuccess } from '@/Redux/slice/childrenSlice';
 
 const Page = () => {
 
+  const searchParams = useSearchParams()
+
+  const phone = searchParams.get('phone');
+
 const parentData = useSelector(state => state?.parents?.data);
 const childData = useSelector(state => state?.children?.data);
 
   const id = parentData?.id;
    console.log(id);
-  
-    const [otp, setOtp] = useState(['', '', '', '']);
-    const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
+  const [otp, setOtp] = useState(['', '', '', '']);
+  const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
+
+  const handleChange = (index, value) => {
+    const newOtp = [...otp];
+    newOtp[index] = value;
+    setOtp(newOtp);
+    if (value !== '' && index < 3) {
+      inputRefs[index + 1].current.focus();
+    };
+  }
     const handleChange = (index, value) => {
       const newOtp = [...otp];
       newOtp[index] = value;
@@ -70,7 +84,7 @@ const dispatch = useDispatch();
               </h6>
             </div>
             <h6 className="text-xs sm:mt-8">Enter the OTP received to</h6>
-            <h1 className="mt-3 text-3xl font-semibold">+91 </h1>
+            <h1 className="mt-3 text-3xl font-semibold">+91 {phone}</h1>
             <p className="mt-2.5 mx-auto sm:mx-0 text-xs w-[300px]">
               A 4 digit OTP will be sent via SMS to verify your mobile number.
             </p>
@@ -92,19 +106,19 @@ const dispatch = useDispatch();
                 className="sm:w-12 w-16 sm:h-12 h-16 border-2 border-slate-500 rounded-md	"
               />
             </div> */}
-            <div className='flex justify-center sm:justify-start gap-4 mt-4'>           
-             {otp.map((digit, index) => (
-        <input
-         className="sm:w-12 w-16 sm:h-12 h-16 border-2 border-slate-500 rounded-md	text-center"
-          key={index}
-          ref={inputRefs[index]}
-          type="text"
-          maxLength={1}
-          value={digit}
-          onChange={(e) => handleChange(index, e.target.value)}
-        />
-      ))}
-      </div>
+            <div className='flex justify-center sm:justify-start gap-4 mt-4'>
+              {otp.map((digit, index) => (
+                <input
+                  className="sm:w-12 w-16 sm:h-12 h-16 border-2 border-slate-500 rounded-md	text-center"
+                  key={index}
+                  ref={inputRefs[index]}
+                  type="text"
+                  maxLength={1}
+                  value={digit}
+                  onChange={(e) => handleChange(index, e.target.value)}
+                />
+              ))}
+            </div>
 
             <div className="w-[300px] mx-auto mt-3 flex justify-between">
               <h4 className="text-[#F58720] font-semibold text-sm">
