@@ -24,13 +24,12 @@ const page = () => {
     const childData = useSelector(state => state?.children?.data)
     const dispatch = useDispatch();
 
-    console.log("parent", parentData, "child", childData)
+    // console.log("parent", parentData, "child", childData)
 
     const id = parentData?.id;
 
     useEffect(() => {
         dispatch(fetchChildrenRequest({ id }))
-        console.log("action called")
     }, [dispatch, id])
 
     let occupation;
@@ -47,7 +46,7 @@ const page = () => {
     const deleteUser = async () => {
         dispatch(resetChildren())
         dispatch(resetParents())
-        router.replace("/")
+        router.push("/")
     }
 
     return (
@@ -96,8 +95,8 @@ const page = () => {
                     })}
                 </div>
             </div>
-            <div className="my-[70px] mx-auto w-[353px] flex py-4 px-[10px] justify-center items-center rounded-[20px] border-2 border-solid border-[#F00] cursor-pointer">
-                <p className="text-[#F00] font-Nunito text-base font-semibold leading-normal" onClick={deleteUser}>Logout</p>
+            <div className="my-[70px] mx-auto w-[353px] flex py-4 px-[10px] justify-center items-center rounded-[20px] border-2 border-solid border-[#F00] cursor-pointer" onClick={deleteUser}>
+                <p className="text-[#F00] font-Nunito text-base font-semibold leading-normal">Logout</p>
             </div>
         </div>
     )
