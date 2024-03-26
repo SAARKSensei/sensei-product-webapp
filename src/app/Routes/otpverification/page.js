@@ -3,7 +3,6 @@
 import React from 'react'
 import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
-import { useSelector } from 'react-redux'
 
 import Danger from '@/Images/danger.svg'
 import Navbar from '@/Components/Navbar'
@@ -13,7 +12,7 @@ const Page = () => {
 
   const searchParams = useSearchParams()
 
-  const phone = searchParams.get('phone')
+  const phone = searchParams.get('phone');
 
   return (
     <div className="h-screen w-screen ">

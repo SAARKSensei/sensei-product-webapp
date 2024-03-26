@@ -6,12 +6,9 @@ import React, { useEffect, useState } from 'react'
 import Navbar from '@/Components/Navbar'
 import LeftSide from '@/Components/LeftSide'
 
-import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 const page = () => {
-
-  const router = useRouter();
 
   const [phoneNum, setPhoneNum] = useState("");
   const [login, setLogin] = useState(false);
