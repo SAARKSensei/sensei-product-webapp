@@ -22,7 +22,7 @@ const page = () => {
 
   }, [phoneNum])
 
-  
+
 
   return (
     <div className="h-screen w-screen">
@@ -47,6 +47,7 @@ const page = () => {
                 </span>
                 <input
                   type="tel"
+                  maxLength={10}
                   onChange={e => setPhoneNum(e.target.value)
                   }
                   className="w-full outline-none" />

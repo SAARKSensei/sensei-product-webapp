@@ -2,32 +2,37 @@
 
 import React from 'react'
 import Image from 'next/image'
-import { useSearchParams } from 'next/navigation'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 import Danger from '@/Images/danger.svg'
 import Navbar from '@/Components/Navbar'
 import LeftSide from '@/Components/LeftSide'
 import { useDispatch, useSelector } from 'react-redux'
-import { useState, useRef , useEffect } from 'react';
-import { fetchParentsRequest, fetchParentsSuccess } from '@/Redux/slice/parentSlice';
-import { fetchChildrenRequest, fetchChildrenSuccess } from '@/Redux/slice/childrenSlice';
+import { useState, useRef, useEffect } from 'react';
+import { fetchParentsRequest } from '@/Redux/slice/parentSlice';
+import { fetchChildrenRequest } from '@/Redux/slice/childrenSlice';
 
 
 const Page = () => {
 
-  const searchParams = useSearchParams()
+  //Fetching Parent and child data
+  const parentData = useSelector(state => state?.parents?.data);
+  const childData = useSelector(state => state?.children?.data);
 
+  //Getting phone nuomber from search params
+  const searchParams = useSearchParams()
   const phone = searchParams.get('phone');
 
-const parentData = useSelector(state => state?.parents?.data);
-const childData = useSelector(state => state?.children?.data);
-
-console.log(parentData);
-console.log(childData);
-
+  //Dispatching actions to get parent and children data from provided details
+  const dispatch = useDispatch();
   const id = parentData?.id;
-   console.log(id);
 
+  useEffect(() => {
+    dispatch(fetchChildrenRequest({ id }))
+    dispatch(fetchParentsRequest({ phone }))
+  }, [id, phone, dispatch])
+
+  //otp input functionality
   const [otp, setOtp] = useState(['', '', '', '']);
   const inputRefs = [useRef(null), useRef(null), useRef(null), useRef(null)];
 
@@ -40,23 +45,18 @@ console.log(childData);
     };
   }
 
-const dispatch = useDispatch();
+  //Conditional routing by checking available data
+  const router = useRouter();
 
-  useEffect(() => {
-
-    dispatch(fetchChildrenRequest ({ id }))
-    dispatch(fetchParentsRequest({ phone }))
-
-  }, [])
-  
-
-  // const detilesHandler = ()=>{
-  //       if () {
-          
-  //       } else {
-          
-  //       }
-  // }
+  const detailsHandler = () => {
+    if (id === undefined && childData.length === 0) {
+      router.push('/Routes/parentdetails')
+    } else if (childData.length === 0) {
+      router.push('/Routes/childdetails')
+    } else {
+      router.push('/Routes/userprofile')
+    }
+  }
 
   return (
     <div className="h-screen w-screen ">
@@ -84,24 +84,6 @@ const dispatch = useDispatch();
             <p className="mt-2.5 mx-auto sm:mx-0 text-xs w-[300px]">
               A 4 digit OTP will be sent via SMS to verify your mobile number.
             </p>
-            {/* <div className="flex justify-center sm:justify-start gap-4 mt-4 ">
-              <input
-                type="text"
-                className="sm:w-12 w-16 sm:h-12 h-16 border-2 border-slate-500 rounded-md	"
-              />
-              <input
-                type="text"
-                className="sm:w-12 w-16 sm:h-12 h-16 border-2 border-slate-500 rounded-md	"
-              />
-              <input
-                type="text"
-                className="sm:w-12 w-16 sm:h-12 h-16 border-2 border-slate-500 rounded-md	"
-              />
-              <input
-                type="text"
-                className="sm:w-12 w-16 sm:h-12 h-16 border-2 border-slate-500 rounded-md	"
-              />
-            </div> */}
             <div className='flex justify-center sm:justify-start gap-4 mt-4'>
               {otp.map((digit, index) => (
                 <input
@@ -115,14 +97,13 @@ const dispatch = useDispatch();
                 />
               ))}
             </div>
-
             <div className="w-[300px] mx-auto mt-3 flex justify-between">
               <h4 className="text-[#F58720] font-semibold text-sm">
                 Resend OTP
               </h4>
               <h4 className="text-xs">0:50 sec</h4>
             </div>
-            <button  className="backgroud-button w-28 h-10 mt-5 px-5 py-2 text-white rounded-full self-center sm:self-start">
+            <button className="backgroud-button w-28 h-10 mt-5 px-5 py-2 text-white rounded-full self-center sm:self-start" onClick={detailsHandler}>
               Continue
             </button>
           </div>

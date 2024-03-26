@@ -13,8 +13,8 @@ import { getChildrenDataAPI, getParentsDataAPI } from "../../apis";
 
 function* getParentsDataSaga(action) {
   try {
-    const { phoneNum } = action.payload;
-    const res = yield call(getParentsDataAPI, phoneNum);
+    const { phone } = action.payload;
+    const res = yield call(getParentsDataAPI, phone);
     yield put(fetchParentsSuccess(res?.data));
   } catch (error) {
     yield put(fetchParentsFailure(error.message));
