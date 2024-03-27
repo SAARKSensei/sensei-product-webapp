@@ -47,7 +47,7 @@ const ActivityCard = ({ unit, time, topic }) => {
       break;
   }
   return (
-    <div className="w-[272px] h-[244px] flex flex-col items-start gap-2">
+    <div className="w-[272px] h-[244px] flex flex-col items-start gap-2 mb-3">
       <div className="w-[272px] h-[184px] rounded-[20px] relative activities-bg">
         {time === "30mins" ? (
           <div className="w-[272px] h-[184px] rounded-[20px] absolute top-0 left-0 bg-[#2c3d68] bg-opacity-40"></div>
