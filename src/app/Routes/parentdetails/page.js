@@ -1,35 +1,70 @@
-"use client"
-import React from 'react'
-import Image from 'next/image'
-import Navbar from '@/Components/Navbar1'
-import Cartoon from '@/Images/parent-page.svg'
-import Parent from '@/Images/parentDetiles.svg'
-import { useState, useEffect } from 'react'
-import Background from '@/Components/Background.js'
-import DownArrow from "../../../Images/downarrow.svg"
+"use client";
+import React from "react";
+import Image from "next/image";
+import Navbar from "@/Components/Navbar1";
+import Cartoon from "@/Images/parent-page.svg";
+import Parent from "@/Images/parentDetiles.svg";
+import { useState, useEffect } from "react";
+import Background from "@/Components/Background.js";
+import DownArrow from "../../../Images/downarrow.svg";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
-const page = () => {
-
+const Page = () => {
+  const router = useRouter();
   const [formData, setformData] = useState({
-    FullName: '',
-    Emailid: '',
-    PhoneNumber: '',
-    City: '',
-    SocietyName: '',
+    FullName: "",
+    Emailid: "",
+    PhoneNumber: "",
+    City: "",
+    SocietyName: "",
   });
-
   // Form to handle input changes
   const InputChange = (e) => {
     setformData({
-      ...formData, [e.target.name]: e.target.value,
-    })
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   //Submit handle
 
-  const SubmitForm = (e) => {
+  const SubmitForm = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    try {
+      // setLoading(true);
+      const data = {
+        name: formData.FullName,
+        email: formData.Emailid,
+        phone: formData.PhoneNumber,
+        password: "ananta@123",
+        userName: formData.Emailid,
+        maritalStatus: "Unmarried",
+        kids: "0",
+        location: formData.City,
+        occupation: "IAS",
+        dateOfBirth: "1998-02-27",
+        relationWithChildren: "Father",
+        spouseName: "Kaali",
+        spouseGender: "Female",
+        spouseEmail: "Kaali@gmail.com",
+        spousePhone: null,
+        spouseOccupation: "Writer",
+        spouseDateOfBirth: null,
+        spouseRelationWithChild: null,
+      };
+      const res = await axios.post(
+        `https://sensei-app-c8da1e59e645.herokuapp.com/sensei/api/v1/create/parent`,
+        data
+      );
+      if (res?.data) {
+        console.log("submitted successfully");
+        router.push("/Routes/childdetails");
+      }
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -37,7 +72,7 @@ const page = () => {
       <Background />
       <Navbar />
       <div className="w-full sm:w-1/2 h-screen flex flex-col justify-center items-center text-center">
-        <div className='flex flex-col items-center justify-center gap-1 sm:translate-y-44 sm:translate-x-8'>
+        <div className="flex flex-col items-center justify-center gap-1 sm:translate-y-44 sm:translate-x-8">
           <h1 className="font-Nunito text-[#2C3D68] text-3xl sm:text-5xl font-extrabold">
             Hello Parent!
           </h1>
@@ -47,16 +82,23 @@ const page = () => {
         </div>
         <Image
           src={Parent}
-          alt='parent'
-          className='sm:w-[618px] sm:h-[689px] sm:translate-y-48 mt-9 sm:mt-11'
+          alt="parent"
+          className="sm:w-[618px] sm:h-[689px] sm:translate-y-48 mt-9 sm:mt-11"
         />
       </div>
 
       <div className="w-full sm:w-1/2 h-screen flex items-center justify-center -translate-y-80 sm:translate-y-0">
-        <div className='w-[333px] sm:w-[353px] h-[528px] flex flex-col justify-center items-center gap-8 mx-auto'>
-          <form id='myForm' onSubmit={SubmitForm} className='w-full h-[439px] flex flex-col gap-4'>
+        <div className="w-[333px] sm:w-[353px] h-[528px] flex flex-col justify-center items-center gap-8 mx-auto">
+          <form
+            id="myForm"
+            onSubmit={SubmitForm}
+            className="w-full h-[439px] flex flex-col gap-4"
+          >
             <div className="flex flex-col gap-[10px] w-full h-[75px]">
-              <label htmlFor="Full Name" className="font-NunitoSans font-normal text-sm">
+              <label
+                htmlFor="Full Name"
+                className="font-NunitoSans font-normal text-sm"
+              >
                 Parent Name
               </label>
               <input
@@ -71,7 +113,10 @@ const page = () => {
               />
             </div>
             <div className="flex flex-col gap-[10px] w-full h-[75px]">
-              <label htmlFor="Email" className="font-NunitoSans font-normal text-sm">
+              <label
+                htmlFor="Email"
+                className="font-NunitoSans font-normal text-sm"
+              >
                 Email
               </label>
               <input
@@ -86,7 +131,10 @@ const page = () => {
               />
             </div>
             <div className="flex flex-col gap-[10px] w-full h-[75px]">
-              <label htmlFor="Phone number" className="font-NunitoSans font-normal text-sm">
+              <label
+                htmlFor="Phone number"
+                className="font-NunitoSans font-normal text-sm"
+              >
                 Phone no.
               </label>
               <input
@@ -102,7 +150,10 @@ const page = () => {
             </div>
             <div className="grid place-content-between grid-cols-2 w-full h-[75px]">
               <div className="w-full h-[75px] flex flex-col gap-[10px] relative ">
-                <label htmlFor="loaction" className="font-NunitoSans font-normal text-sm">
+                <label
+                  htmlFor="loaction"
+                  className="font-NunitoSans font-normal text-sm"
+                >
                   Loaction
                 </label>
                 <select
@@ -120,12 +171,15 @@ const page = () => {
                 </select>
                 <Image
                   src={DownArrow}
-                  alt='arrow'
-                  className='absolute left-32 top-[50px] cursor-pointer'
+                  alt="arrow"
+                  className="absolute left-32 top-[50px] cursor-pointer"
                 />
               </div>
               <div className="w-full h-[75px] flex flex-col gap-[10px] relative">
-                <label htmlFor="working" className="font-NunitoSans font-normal text-sm">
+                <label
+                  htmlFor="working"
+                  className="font-NunitoSans font-normal text-sm"
+                >
                   Both working
                 </label>
                 <select
@@ -142,13 +196,16 @@ const page = () => {
                 </select>
                 <Image
                   src={DownArrow}
-                  alt='arrow'
-                  className='absolute left-32 top-[50px] cursor-pointer'
+                  alt="arrow"
+                  className="absolute left-32 top-[50px] cursor-pointer"
                 />
               </div>
             </div>
             <div className="flex flex-col gap-[10px] w-full h-[75px]">
-              <label htmlFor="SocietyName" className="font-NunitoSans font-normal text-sm">
+              <label
+                htmlFor="SocietyName"
+                className="font-NunitoSans font-normal text-sm"
+              >
                 Society Name
               </label>
               <input
@@ -166,16 +223,15 @@ const page = () => {
           </form>
           <button
             type="submit"
-            form='myForm'
-            className="backgroud-button w-full px-6 py-4 text-white rounded-[40px] whitespace-nowrap font-Nunito font-extrabold text-lg">
+            form="myForm"
+            className="backgroud-button w-full px-6 py-4 text-white rounded-[40px] whitespace-nowrap font-Nunito font-extrabold text-lg"
+          >
             Save & Next
           </button>
         </div>
       </div>
-
-
     </div>
   );
-}
+};
 
-export default page
+export default Page;
