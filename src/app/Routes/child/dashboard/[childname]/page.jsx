@@ -24,7 +24,7 @@ const UserDashboard = () => {
     <div className="w-full h-screen flex flex-col items-center  from-gray-200 to-white ">
       <Background1 />
       <Navbar3 />
-      <div className="w-full mt-[200px] flex flex-col items-center gap-5 px-5">
+      <div className="w-full mt-[200px] flex flex-col items-center gap-5 px-5 z-40">
         <div className="w-[353px] sm:w-[1015px] inline-flex flex-col items-start gap-1">
           <p className="text-[#333] font-Quicksand text-sm sm:text-lg font-semibold sm:font-bold tracking-tighter uppercase">
             Hello!

@@ -52,7 +52,7 @@ const Activities = () => {
             </select>
           </div>
         </div>
-        <div className="w-[353px] sm:w-full flex items-start gap-5 overflow-x-scroll scrollbar-hide cursor-pointer">
+        <div className="w-[353px] sm:w-full flex items-start gap-5 overflow-x-scroll cursor-pointer">
           {inSchoolActivities.map((item, i) => (
             <ActivityCard
               key={i}
@@ -74,7 +74,7 @@ const Activities = () => {
               />
             </div>
           </div>
-          <div className="w-[353px] sm:w-full flex items-start gap-5 overflow-x-scroll scrollbar-hide cursor-pointer">
+          <div className="w-[353px] sm:w-full flex items-start gap-5 overflow-x-scroll cursor-pointer">
             {afterSchoolActivities.map((item, i) => (
               <ActivityCard
                 key={i}

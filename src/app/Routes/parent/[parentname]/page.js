@@ -87,7 +87,7 @@ const page = () => {
                     })}
                 </div>
             </div>
-            <div className="my-[70px] mx-auto w-[353px] flex py-4 px-[10px] justify-center items-center rounded-[20px] border-2 border-solid border-[#F00] cursor-pointer" onClick={deleteUser}>
+            <div className="my-[70px] mx-auto w-[353px] flex py-4 px-[10px] justify-center items-center rounded-[20px] border-2 border-solid border-[#F00] cursor-pointer z-[200]" onClick={deleteUser}>
                 <p className="text-[#F00] font-Nunito text-base font-semibold leading-normal">Logout</p>
             </div>
         </div>
