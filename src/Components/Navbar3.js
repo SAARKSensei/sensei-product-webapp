@@ -11,7 +11,7 @@ import Bell from "../Images/bell.svg"
 
 const Navbar3 = () => {
 
-    let child_name = (window.location.pathname.split("/")[4]);
+    let child_name = (window.location.pathname.split("/")[4])
 
     return (
         <div className='fixed flex z-50 w-full h-[120px] shrink-0 rounded-b-[20px] navbar3-bg'>
