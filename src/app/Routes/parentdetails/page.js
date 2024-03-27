@@ -142,6 +142,7 @@ const Page = () => {
                 id="PhoneNumber"
                 name="PhoneNumber"
                 value={formData.PhoneNumber}
+                maxLength={10}
                 onChange={InputChange}
                 placeholder="Enter phone number"
                 className="w-full h-[46px] px-6 py-3 border-2 shadow-md rounded-[10px] bg-white focus:outline-none focus:border-blue-400 font-NunitoSans font-semibold text-base"
