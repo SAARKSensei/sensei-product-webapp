@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 
 import Subject from "@/Components/Subject";
 import Navbar3 from '@/Components/Navbar3';
