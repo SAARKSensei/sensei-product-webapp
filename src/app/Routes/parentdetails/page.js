@@ -58,10 +58,8 @@ const Page = () => {
         data
       );
       if (res?.data) {
-        console.log("submitted successfully");
         router.push("/Routes/childdetails");
       }
-      console.log(res);
     } catch (error) {
       console.log(error);
     }
