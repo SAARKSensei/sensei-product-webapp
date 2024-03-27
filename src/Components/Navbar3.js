@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React from 'react'
 import Image from 'next/image'
@@ -27,7 +27,7 @@ const Navbar3 = () => {
                     </div>
                     <div className="relative ml-5">
                         <Image src={Bell} alt="bellicon" />
-                        <p className='bg-[#FF8B13] rounded-[50%] absolute top-[-2px] right-1 w-2 h-2'></p>
+                        <p className='bg-[#FF8B13] rounded-[50%] absolute -top-[2px] right-1 w-2 h-2'></p>
                     </div>
                 </div>
             </div>
