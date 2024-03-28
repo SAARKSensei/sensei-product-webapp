@@ -8,7 +8,7 @@ import ProfileImage from '@/Images/DefultProfile.svg'
 import Phoneicon from '@/Images/Phoneicon.png'
 import DownArrow from "../Images/downarrow.svg"
 
-const Navbar = () => {
+const Navbar = ({ parentName }) => {
 
   return (
     <div className="flex justify-between items-center w-full h-auto mt-8 px-5 sm:px-24 z-20 absolute">
@@ -25,7 +25,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="flex flex-row w-28 justify-center items-center text-center gap-2">
-          <h2 className="text-[#2C3D68] font-bold font-Nunito text-lg"> Parent</h2>
+          <h2 className="text-[#2C3D68] font-bold font-Nunito text-lg">{parentName ? parentName : "parent"}</h2>
           <Image
             className="w-11 h-11"
             alt='profile image'

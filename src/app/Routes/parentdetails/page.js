@@ -2,16 +2,26 @@
 import React from "react";
 import Image from "next/image";
 import Navbar from "@/Components/Navbar1";
-import Cartoon from "@/Images/parent-page.svg";
-import Parent from "@/Images/parentDetiles.svg";
-import { useState, useEffect } from "react";
-import Background from "@/Components/Background.js";
-import DownArrow from "../../../Images/downarrow.svg";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+
+import Parent from "@/Images/parentDetiles.svg";
+import { useState } from "react";
+import Background from "@/Components/Background.js";
+import DownArrow from "../../../Images/downarrow.svg";
+
+import { setCurrentUserData } from "@/Redux/slice/currentuserslice";
 
 const Page = () => {
+
+  const currentUserData = useSelector(state => state?.currentUser?.data);
+
   const router = useRouter();
+  const dispatch = useDispatch();
+
   const [formData, setformData] = useState({
     FullName: "",
     Emailid: "",
@@ -57,18 +67,20 @@ const Page = () => {
         `https://sensei-app-c8da1e59e645.herokuapp.com/sensei/api/v1/create/parent`,
         data
       );
+      dispatch(setCurrentUserData({ phoneNumber: formData.PhoneNumber, name: formData.FullName, parentId: res?.data }));
       if (res?.data) {
         router.push("/Routes/childdetails");
       }
-    } catch (error) {
-      console.log(error);
+    }
+    catch (error) {
+      toast.warn("Username already taken");
     }
   };
 
   return (
     <div className="h-max w-screen overflow-hidden flex flex-col sm:flex-row z-50">
       <Background />
-      <Navbar />
+      <Navbar parentName={formData.name} />
       <div className="w-full sm:w-1/2 h-screen flex flex-col justify-center items-center text-center">
         <div className="flex flex-col items-center justify-center gap-1 sm:translate-y-44 sm:translate-x-8">
           <h1 className="font-Nunito text-[#2C3D68] text-3xl sm:text-5xl font-extrabold">
@@ -142,7 +154,7 @@ const Page = () => {
                 value={formData.PhoneNumber}
                 maxLength={10}
                 onChange={InputChange}
-                placeholder="Enter phone number"
+                placeholder={currentUserData.phoneNumber}
                 className="w-full h-[46px] px-6 py-3 border-2 shadow-md rounded-[10px] bg-white focus:outline-none focus:border-blue-400 font-NunitoSans font-semibold text-base"
                 required
               />
