@@ -11,6 +11,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useState, useRef, useEffect } from 'react';
 import { fetchParentsRequest } from '@/Redux/slice/parentSlice';
 import { fetchChildrenRequest } from '@/Redux/slice/childrenSlice';
+import { setCurrentUserData } from '@/Redux/slice/currentuserslice';
 
 
 const Page = () => {
@@ -30,6 +31,7 @@ const Page = () => {
   useEffect(() => {
     dispatch(fetchChildrenRequest({ id }))
     dispatch(fetchParentsRequest({ phone }))
+    dispatch(setCurrentUserData({ phoneNumber: phone, name: "", parentId: "" }))
   }, [id, phone, dispatch])
 
   //otp input functionality

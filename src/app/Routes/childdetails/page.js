@@ -1,21 +1,31 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client";
+
 import React from "react";
 import Navbar1 from "@/Components/Navbar1";
 import Image from "next/image";
-import DeleteIcon from "@/Images/delete-icon.svg";
-import AddChild from "@/Images/Addchild.svg";
-import Background from "@/Components/Background.js";
-import PlusIcon from "@/Images/plusIcon.svg";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import axios from "axios";
 
-const Page = () => {
+import DeleteIcon from "@/Images/delete-icon.svg";
+import AddChild from "@/Images/Addchild.svg";
+import Background from "@/Components/Background1.js";
+import PlusIcon from "@/Images/plusIcon.svg";
+
+const page = () => {
+  const currentUserData = useSelector((state) => state?.currentUser?.data);
+
   const router = useRouter();
-  const [currentForm, setCurrentForm] = useState(1);
+  const [visitingCounsellor, setVisitingCounsellor] = useState(false);
+  const [medicalHistory, setMedicalHistory] = useState(false);
+
   const [persons, setPersons] = useState({
     childNo: 1,
     details: [{ childName: "", grade: "", schoolName: "", plan: "", date: "" }],
   });
+
   const handleChange = (key, value) => {
     setPersons((prevState) => {
       const updatedDetails = prevState.details.map((detail, index) => {
@@ -27,7 +37,33 @@ const Page = () => {
       return { ...prevState, details: updatedDetails };
     });
   };
+
+  const postChildData = async () => {
+    try {
+      const data = {
+        parentUserId: currentUserData?.parentId,
+        childName: persons.details[persons.childNo - 1].childName,
+        schoolId: persons.details[persons.childNo - 1].schoolName,
+        dateOfBirth: persons.details[persons.childNo - 1].date,
+        visitingCounsellor: visitingCounsellor,
+        anyMedicalHistory: medicalHistory,
+        medicalHistoryDescription: null,
+        bloodGroup: null,
+        grade: persons.details[persons.childNo - 1].grade,
+      };
+      console.log("data to be sent", data);
+      const res = await axios.post(
+        `https://sensei-app-c8da1e59e645.herokuapp.com/sensei/api/v1/create/child`,
+        data
+      );
+      console.log(res?.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const addPerson = () => {
+    postChildData();
     setPersons({
       childNo: persons.childNo + 1,
       details: [
@@ -35,17 +71,21 @@ const Page = () => {
         { childName: "", grade: "", schoolName: "", plan: "", date: "" },
       ],
     });
-    console.log(persons);
+    setVisitingCounsellor(false);
+    setMedicalHistory(false);
+    console.log("add new child", persons);
   };
-  const saveData = () => {
-    console.log(persons);
-    // router.push('/Routes/parentdetails')
-    // Here you can perform actions to save the data, such as sending it to a server
+
+  const saveData = async (e) => {
+    e.preventDefault();
+    postChildData();
+    // router.push(`/Routes/parent/${currentUserData.name}`)
   };
+
   return (
     <div className="h-screen w-screen">
       <Background />
-      <Navbar1 />
+      <Navbar1 parentName={currentUserData.name} />
       <div className="flex justify-center items-center sm:block flex-col sm:items-start sm:justify-center">
         <div className="flex flex-col justify-center items-center mt-24 sm:mt-0 font-Nunito">
           <h1 className=" text-[#2C3D68] sm:text-3xl text-2xl font-bold sm:mt-28">
@@ -55,7 +95,6 @@ const Page = () => {
             Please fill in the correct details
           </h6>
         </div>
-
         <div key={persons.childNo}>
           <div className="flex flex-col sm:flex-row justify-center items-center sm:gap-12 gap-2 mt-5">
             <div className="w-[353px] h-[569px] sm:w-[562px] sm:h-[388px]  bg-[#FFF8F1] rounded-lg  z-50">
@@ -96,8 +135,13 @@ const Page = () => {
                       className="block w-full h-[46px] px-6 py-2 sm:border-2 rounded-md outline-none bg-white"
                     >
                       <option value="Select">Select</option>
-                      <option value="New York">New York</option>
-                      <option value="Los Angeles">Los Angeles</option>
+                      <option value="New York">1</option>
+                      <option value="Los Angeles">2</option>
+                      <option value="Los Angeles">3</option>
+                      <option value="Los Angeles">4</option>
+                      <option value="Los Angeles">5</option>
+                      <option value="Los Angeles">6</option>
+                      <option value="Los Angeles">7</option>
                       {/* Add more options as needed */}
                     </select>
                   </div>
@@ -151,14 +195,20 @@ const Page = () => {
                   <div className="flex flex-col sm:gap-4 gap-2 mt-2 sm:mt-0 sm:w-[230px] h-[88px]">
                     <div className="w-full flex justify-between whitespace-nowrap gap-1">
                       <h4 className="text-sm ">Visiting any counsellor:</h4>
-                      <label className="switch  mb-2">
+                      <label
+                        className="switch  mb-2"
+                        onClick={() => setVisitingCounsellor(true)}
+                      >
                         <input type="checkbox" />
                         <span className="slider round"></span>
                       </label>
                     </div>
                     <div className="w-full flex justify-between whitespace-nowrap gap-6">
                       <h4 className="text-sm ">Any Medical History</h4>
-                      <label className="switch">
+                      <label
+                        className="switch"
+                        onClick={() => setMedicalHistory(true)}
+                      >
                         <input type="checkbox" />
                         <span className="slider round"></span>
                       </label>
@@ -199,4 +249,5 @@ const Page = () => {
     </div>
   );
 };
-export default Page;
+
+export default page;

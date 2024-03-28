@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
@@ -22,6 +22,13 @@ const page = () => {
 
     const parentData = useSelector(state => state?.parents?.data);
     const childData = useSelector(state => state?.children?.data);
+    const currentUserData = useSelector(state => state?.currentUser?.data)
+    const id = currentUserData?.parentId;
+
+    useEffect(() => {
+        dispatch(fetchChildrenRequest({ id }))
+    }, [id, dispatch])
+
 
     let occupation;
     let kids = childData.length;
