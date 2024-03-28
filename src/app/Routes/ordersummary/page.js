@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import Navbar from "@/Components/Navbar1.js";
 import Background from "@/Components/Background1.js";
@@ -5,59 +6,68 @@ import Image from "next/image";
 import Book from "@/Images/books.svg";
 import LikeIcon from "@/Images/like-icon.svg";
 import DeletIcon from "@/Images/Deleteicon.svg";
+import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+const Page = () => {
+  const currentUserData = useSelector((state) => state?.currentUser?.data);
 
-const page = () => {
+  const router = useRouter();
+  const submitHandler = () => {
+    console.log("submitted");
+    router.push(`/Routes/parent/${currentUserData.name}`);
+  };
   return (
-    <div className="h-screen w-screen">
+    <div className=" h-screen w-screen">
       <Background />
       <div>
         <Navbar />
       </div>
       <div className="flex sm:flex-row flex-col">
-      <div className="whitespace-nowrap gap-3 mt-36 ml-24 sm:hidden flex">
-            <h4 className="text-sm text-[#2C3D68] font-semibold	">Monthly</h4>
-            <label className="switch">
-              <input type="checkbox" />
-              <span className="slider1 round"></span>
-            </label>
-            <h4 className="text-sm text-[#2C3D68] font-semibold	">Annually</h4>
-          </div>
+        <div className="whitespace-nowrap gap-3 mt-36 ml-24 sm:hidden flex">
+          <h4 className="text-sm text-[#2C3D68] font-semibold	">Monthly</h4>
+          <label className="switch">
+            <input type="checkbox" />
+            <span className="slider1 round"></span>
+          </label>
+          <h4 className="text-sm text-[#2C3D68] font-semibold	">Annually</h4>
+        </div>
 
         <div className="sm:mt-36 mt-5 sm:ml-56 w-1/2 px-[20px]">
           <h1 className="font-semibold	text-2xl text-[#2C3D68]">
             Order Summary
           </h1>
           <div className="sm:h-40 sm:w-10/12 h-[128px] w-[353px] border-2 border-slate-300	mt-5 rounded-lg flex felx-row justify-between sm:pr-5 pr-2">
-           <div className="flex gap-4">
-           <div>
-              <Image src={Book} alt="book" className="sm:h-32 sm:w-50 h-[78px] w-[66px] sm:mt-3 my-[20px] sm:my-0 ml-2 pl-2 sm:pl-0" />
-            </div>
-            <div className="flex flex-col justify-center">
-              <h3 className="sm:text-lg text-base font-semibold tracking-wide text-[#2C3D68]">
-                Student Name
-              </h3>
-              <div className="flex flex-row gap-4 text-sm	">
-                <h6>Age: 7 years </h6>
-                <h6> Grade:1</h6>
+            <div className="flex gap-4">
+              <div>
+                <Image
+                  src={Book}
+                  alt="book"
+                  className="sm:h-32 sm:w-50 h-[78px] w-[66px] sm:mt-3 my-[20px] sm:my-0 ml-2 pl-2 sm:pl-0"
+                />
               </div>
-              <h4 className="mt-2 sm:px-1 px-0.6 rounded-md border-2 border-blue-600 whitespace-nowrap	bg-blue-200">
-                Foundational Course
-              </h4>
+              <div className="flex flex-col justify-center">
+                <h3 className="sm:text-lg text-base font-semibold tracking-wide text-[#2C3D68]">
+                  Student Name
+                </h3>
+                <div className="flex flex-row gap-4 text-sm	">
+                  <h6>Age: 7 years </h6>
+                  <h6> Grade:1</h6>
+                </div>
+                <h4 className="mt-2 sm:px-1 px-0.6 rounded-md border-2 border-blue-600 whitespace-nowrap	bg-blue-200">
+                  Foundational Course
+                </h4>
+              </div>
             </div>
-           </div>
             <div>
-             <div className="h-full flex flex-col justify-around">
-             <div className="flex sm:gap-3 gap-1">
-                <Image src={LikeIcon} />
-                <Image className="" src={DeletIcon} />
+              <div className="h-full flex flex-col justify-around">
+                <div className="flex sm:gap-3 gap-1">
+                  <Image src={LikeIcon} />
+                  <Image className="" src={DeletIcon} />
+                </div>
+                <h4 className="text-lg font-semibold text-[#2C3D68]">₹2999</h4>
               </div>
-              <h4 className="text-lg font-semibold text-[#2C3D68]">
-                ₹2999
-              </h4>
-             </div>
             </div>
           </div>
-          
         </div>
 
         <div className="flex flex-col">
@@ -87,6 +97,7 @@ const page = () => {
       </div>
       <div className="flex sm:justify-center sm:text-center px-[20px] sm:px-0 ">
         <button
+          onClick={submitHandler}
           type="Submit"
           className="backgroud-button py-2.5 rounded-full sm:text-center px-32 text-white mt-8 sm:mt-0 "
         >
@@ -97,4 +108,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

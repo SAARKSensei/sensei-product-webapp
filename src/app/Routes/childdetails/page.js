@@ -48,7 +48,7 @@ const page = () => {
         visitingCounsellor: visitingCounsellor,
         anyMedicalHistory: medicalHistory,
         medicalHistoryDescription: null,
-        bloodGroup: null,
+        bloodGroup: "B+",
         grade: persons.details[persons.childNo - 1].grade,
       };
       console.log("data to be sent", data);
@@ -56,7 +56,7 @@ const page = () => {
         `https://sensei-app-c8da1e59e645.herokuapp.com/sensei/api/v1/create/child`,
         data
       );
-      console.log(res?.data);
+      // console.log(res?.data);
     } catch (error) {
       console.log(error);
     }
@@ -79,7 +79,7 @@ const page = () => {
   const saveData = async (e) => {
     e.preventDefault();
     postChildData();
-    // router.push(`/Routes/parent/${currentUserData.name}`)
+    router.push(`/Routes/ordersummary`);
   };
 
   return (
