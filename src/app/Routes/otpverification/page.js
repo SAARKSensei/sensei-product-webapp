@@ -29,8 +29,8 @@ const Page = () => {
   const id = parentData?.id;
 
   useEffect(() => {
-    dispatch(fetchChildrenRequest({ id }))
     dispatch(fetchParentsRequest({ phone }))
+    dispatch(fetchChildrenRequest({ id }))
     dispatch(setCurrentUserData({ phoneNumber: phone, name: "", parentId: "" }))
   }, [id, phone, dispatch])
 

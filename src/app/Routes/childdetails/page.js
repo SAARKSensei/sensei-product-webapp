@@ -17,6 +17,10 @@ import PlusIcon from "@/Images/plusIcon.svg"
 const page = () => {
 
   const currentUserData = useSelector(state => state?.currentUser?.data);
+  const parentData = useSelector(state => state?.parents?.data);
+  const parentId = parentData?.id;
+  const parentName = parentData?.name;
+  console.log(parentId);
 
   const router = useRouter();
   const [visitingCounsellor, setVisitingCounsellor] = useState(false);
@@ -43,7 +47,7 @@ const page = () => {
   const postChildData = async () => {
     try {
       const data = {
-        parentUserId: currentUserData?.parentId,
+        parentUserId: parentId,
         childName: persons.details[persons.childNo - 1].childName,
         schoolId: persons.details[persons.childNo - 1].schoolName,
         dateOfBirth: persons.details[persons.childNo - 1].date,
@@ -82,7 +86,7 @@ const page = () => {
   const saveData = async (e) => {
     e.preventDefault();
     postChildData();
-    // router.push(`/Routes/parent/${currentUserData.name}`)
+    // router.push(`/Routes/parent/${parentName}`)
   };
 
   return (

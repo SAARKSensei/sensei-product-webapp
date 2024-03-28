@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { resetChildren } from '@/Redux/slice/childrenSlice';
+import { fetchChildrenRequest, resetChildren } from '@/Redux/slice/childrenSlice';
 import { resetParents } from '@/Redux/slice/parentSlice';
 
 import Navbar3 from '@/Components/Navbar3'
@@ -25,6 +25,8 @@ const page = () => {
     const currentUserData = useSelector(state => state?.currentUser?.data)
     const id = currentUserData?.parentId;
 
+    const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(fetchChildrenRequest({ id }))
     }, [id, dispatch])
@@ -39,7 +41,6 @@ const page = () => {
         occupation = "Only one";
     }
 
-    const dispatch = useDispatch();
     const router = useRouter();
 
     const deleteUser = async () => {
