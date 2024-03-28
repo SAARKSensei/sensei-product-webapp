@@ -51,7 +51,6 @@ const page = () => {
     e.preventDefault();
     try {
       const data ={
-        id: "2c91b3228df9bb98018df9d0fc150008",
         parentUserId: "2c91aa0e8dfe7508018dfe8870450001",
         childName: persons.details[persons.childNo - 1].childName,
         schoolId: "2c91b3228df9bb98018df9d094d60002",
@@ -62,8 +61,6 @@ const page = () => {
         bloodGroup: "O +ve",
         grade: persons.details[persons.childNo - 1].grade
       }
-
-      console.log(data)
       const res = await axios.post(
         `https://sensei-app-c8da1e59e645.herokuapp.com/sensei/api/v1/create/child`,
         data
@@ -73,9 +70,8 @@ const page = () => {
       console.log(error);
 
     }
-    console.log(persons);
+  
     // router.push('/Routes/parentdetails')
-    // Here you can perform actions to save the data, such as sending it to a server
   };
 
   return (
